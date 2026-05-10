@@ -2,15 +2,14 @@
 <html lang="es">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=1024" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Retiro del Perdón 2026 - Niños</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
-        body { font-family: 'Comic Neue', cursive; background: #f0f9ff; color: #333; }
+        body { font-family: 'Comic Neue', cursive; background: #f0f9ff; color: #333; margin: 0; overflow: hidden; }
         
-        /* Fix para el mensaje de soporte */
         .fallback-message { display: none; }
         .impress-not-supported .fallback-message { 
             display: block; 
@@ -21,81 +20,141 @@
         }
         .impress-supported .fallback-message { display: none; }
 
-        .step { width: 1000px; padding: 40px; background: white; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 8px solid #ffcf00; opacity: 0.3; transition: opacity 1s; }
+        .step { 
+            width: 1200px; 
+            height: 800px;
+            padding: 60px; 
+            background: white; 
+            border-radius: 40px; 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15); 
+            border: 12px solid #ffcf00; 
+            opacity: 0.1; 
+            transition: opacity 1s, transform 1s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-size: 1.5em;
+        }
         .step.active { opacity: 1; }
-        h1, h2 { font-family: 'Luckiest Guy', cursive; color: #e63946; text-align: center; }
-        .biblia, .cec { background: #fff3b0; padding: 15px; border-left: 8px solid #f9a825; font-style: italic; margin: 10px 0; border-radius: 10px; font-size: 0.9em; }
+
+        h1 { font-family: 'Luckiest Guy', cursive; color: #e63946; text-align: center; font-size: 3.5em; margin-bottom: 20px; }
+        h2 { font-family: 'Luckiest Guy', cursive; color: #4361ee; text-align: center; font-size: 2.5em; margin-bottom: 20px; }
+        
+        .biblia, .cec { background: #fff3b0; padding: 25px; border-left: 12px solid #f9a825; font-style: italic; margin: 30px 0; border-radius: 15px; font-size: 0.9em; }
         .cec { background: #e0f2f1; border-color: #009688; }
+        
         .lista { font-size: 1.2em; list-style: none; padding: 0; }
+        .lista li { margin-bottom: 15px; }
         .lista li::before { content: "✨ "; }
-        .actividad { background: #ffefef; border: 4px dashed #e63946; padding: 20px; border-radius: 20px; }
+        
+        .actividad { 
+            background: #fffafa; 
+            border: 6px dashed #e63946; 
+            padding: 30px; 
+            border-radius: 30px; 
+            text-align: center;
+        }
+
+        .highlight { color: #e63946; font-weight: bold; }
+
+        img { max-height: 300px; display: block; margin: 0 auto; }
     </style>
 </head>
 <body class="impress-not-supported">
-<div id="impress" data-transition-duration="1000">
 
+<div class="fallback-message">
+    <p>Tu navegador <b>no soporta las funciones requeridas</b> por impress.js.</p>
+</div>
+
+<div id="impress" data-width="1920" data-height="1080" data-max-scale="2" data-min-scale="0.5" data-perspective="1000">
+
+    <!-- INICIO -->
     <div id="inicio" class="step" data-x="0" data-y="0" data-scale="4">
         <h1>¡El Perdón en la Familia!</h1>
-        <p style="text-align:center;">Donde aprendemos a amar de verdad</p>
-        <div style="text-align:center;"><img src="https://img.icons8.com/color/144/family--v1.png"></div>
+        <p style="text-align:center; font-size: 1.2em;">En casa aprendemos a <b>amar de verdad</b></p>
+        <img src="https://img.icons8.com/color/240/family--v1.png" alt="Familia">
     </div>
 
-    <div id="escuela" class="step" data-x="0" data-y="1500" data-rotate="90" data-scale="2">
-        <h2>La Familia es una Escuela</h2>
-        <p>En casa aprendemos lo más importante:</p>
+    <!-- LA ESCUELA DEL AMOR -->
+    <div id="escuela" class="step" data-x="0" data-y="2000" data-rotate="90" data-scale="2">
+        <h2>La Familia es nuestra Escuela</h2>
+        <p>Dios quiso que la familia sea el primer lugar para aprender:</p>
         <ul class="lista">
-            <li>Amar y Respetar</li>
-            <li>Compartir</li>
-            <li>Pedir Perdón y Perdonar</li>
+            <li>A amar y respetar</li>
+            <li>A compartir y ayudar</li>
+            <li>A <span class="highlight">pedir perdón</span> y a <span class="highlight">perdonar</span></li>
         </ul>
         <div class="cec">
             "La familia es la célula original de la vida social" (CEC 2207)
         </div>
     </div>
 
-    <div id="peleas" class="step" data-x="2000" data-y="1500" data-scale="2">
-        <h2>¿Peleas en casa? ☁️</h2>
-        <p>A veces hay enojo o palabras que duelen. ¡Es normal!</p>
-        <p>Nadie es perfecto. Lo importante no es no equivocarse, sino <b>aprender a arreglarlo</b>.</p>
+    <!-- PELEAS Y ERRORES -->
+    <div id="peleas" class="step" data-x="2500" data-y="2000" data-scale="2">
+        <h2>¿Qué pasa cuando nos peleamos? ☁️</h2>
+        <p>En todas las familias hay:</p>
+        <ul class="lista">
+            <li>Peleas entre hermanos</li>
+            <li>Palabras que duelen</li>
+            <li>Enojo o malentendidos</li>
+        </ul>
+        <p>¡No pasa nada! Todos estamos <b>aprendiendo a amar mejor</b>.</p>
         <div class="biblia">
             "Perdónense unos a otros como el Señor los ha perdonado" (Colosenses 3,13)
         </div>
     </div>
 
-    <div id="corazon" class="step" data-x="4000" data-y="1500" data-rotate="-90" data-scale="2">
-        <h2>El Perdón Sana ❤️</h2>
-        <p>Cuando decimos "Lo siento":</p>
+    <!-- EL PERDÓN SANA -->
+    <div id="sana" class="step" data-x="5000" data-y="2000" data-rotate="-90" data-scale="2">
+        <h2>¡El Perdón Sana el Corazón! ❤️</h2>
+        <p>Cuando alguien pide perdón en casa:</p>
         <ul class="lista">
             <li>El corazón se calma</li>
             <li>La relación se arregla</li>
-            <li>¡El AMOR vuelve!</li>
+            <li>El amor brilla más fuerte</li>
         </ul>
-    </div>
-
-    <div id="jesus" class="step" data-x="4000" data-y="3500" data-scale="2">
-        <h2>Jesús es el Centro</h2>
-        <p>Él nos dio el signo del amor total:</p>
-        <h1 style="color:#009688;">LA CRUZ ✝️</h1>
-        <p>Jesús es el amor que une a toda la familia.</p>
-    </div>
-
-    <div id="actividad" class="step" data-x="2000" data-y="3500" data-rotate="180" data-scale="2">
-        <div class="actividad">
-            <h2>DINÁMICA: El Espejo Limpio</h2>
-            <p>1. Piensa en alguien de tu familia con quien estés enojado.</p>
-            <p>2. ¡Dale un abrazo fuerte de paz!</p>
-            <p>3. Di las palabras mágicas: <b>"Te quiero y te perdono"</b>.</p>
+        <div class="cec">
+            "La educación de los hijos se realiza principalmente en la familia... aprendiendo a perdonar." (CEC 2227)
         </div>
     </div>
 
-    <div id="final" class="step" data-x="0" data-y="3500" data-scale="3">
-        <h1>¡Dios está en casa!</h1>
-        <p style="text-align:center;">Cuando hay perdón, hay PAZ.</p>
-        <p style="text-align:center; font-size: 3em;">🏠✨❤️</p>
+    <!-- JESÚS EN EL CENTRO -->
+    <div id="jesus" class="step" data-x="5000" data-y="4500" data-scale="2">
+        <h2>Jesús une a la Familia</h2>
+        <p>Jesús dio su vida para enseñarnos que el perdón es más fuerte que el enojo.</p>
+        <h1 style="color:#009688;">LA CRUZ ✝️</h1>
+        <p style="text-align:center;">Es el signo del amor total de Dios.</p>
+        <div class="cec">
+            "La cruz de Cristo es el signo del amor total de Dios por nosotros." (CEC 618)
+        </div>
+    </div>
+
+    <!-- ACTIVIDAD: DOS HOJAS Y UNA CRUZ -->
+    <div id="actividad" class="step" data-x="2500" data-y="4500" data-rotate="180" data-scale="2">
+        <div class="actividad">
+            <h2>ACTIVIDAD: Dos Hojas y una Cruz</h2>
+            <p>1. En la <span class="highlight">Hoja 1</span>: Dibuja las peleas y el enojo.</p>
+            <p>2. En la <span class="highlight">Hoja 2</span>: Dibuja los abrazos y la alegría.</p>
+            <p>3. <b>En el medio</b>: Pon la Cruz de Jesús.</p>
+            <p style="font-size: 0.8em; margin-top: 15px;">"¡Jesús une nuestra familia con su amor!"</p>
+        </div>
+    </div>
+
+    <!-- CIERRE -->
+    <div id="final" class="step" data-x="0" data-y="4500" data-scale="3">
+        <h1>¡Hogar dulce Hogar!</h1>
+        <p style="text-align:center;">Jesús, gracias por mi familia. Ayúdanos a perdonarnos siempre.</p>
+        <p style="text-align:center; font-size: 3em;">🏠✨🙏✨❤️</p>
+        <p style="text-align:center; font-size: 0.5em; color: #777;">Carlos G. - 2026</p>
     </div>
 
 </div>
+
 <script src="../../js/impress.js"></script>
-<script>impress().init();</script>
+<script>
+    // Inicializar con dimensiones de pantalla completa
+    impress().init();
+</script>
+
 </body>
 </html>
