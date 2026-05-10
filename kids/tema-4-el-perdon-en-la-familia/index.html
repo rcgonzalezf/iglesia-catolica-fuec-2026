@@ -9,7 +9,20 @@
 
     <style>
         body { font-family: 'Comic Neue', cursive; background: #f0f9ff; color: #333; }
-        .step { width: 1000px; padding: 40px; background: white; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 8px solid #ffcf00; }
+        
+        /* Fix para el mensaje de soporte */
+        .fallback-message { display: none; }
+        .impress-not-supported .fallback-message { 
+            display: block; 
+            background: #ffebee; 
+            padding: 20px; 
+            text-align: center; 
+            border-bottom: 2px solid #ef5350;
+        }
+        .impress-supported .fallback-message { display: none; }
+
+        .step { width: 1000px; padding: 40px; background: white; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 8px solid #ffcf00; opacity: 0.3; transition: opacity 1s; }
+        .step.active { opacity: 1; }
         h1, h2 { font-family: 'Luckiest Guy', cursive; color: #e63946; text-align: center; }
         .biblia, .cec { background: #fff3b0; padding: 15px; border-left: 8px solid #f9a825; font-style: italic; margin: 10px 0; border-radius: 10px; font-size: 0.9em; }
         .cec { background: #e0f2f1; border-color: #009688; }
