@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sesión 2 - El Descubrimiento del Rencor (Texto Íntegro)</title>
+    <title>Sesión 2 - El Descubrimiento del Rencor</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
 
@@ -21,6 +21,20 @@
         }
         .step.active { opacity: 1 !important; visibility: visible !important; z-index: 100; pointer-events: auto; }
 
+        /* Título Principal - Ajustado para contraste y tamaño */
+        .main-title { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 2.5em; /* Reducido para que no se parta */
+            text-align: center; 
+            color: white; 
+            background: #c0392b; /* Fondo oscuro para contraste */
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(192, 57, 43, 0.3);
+            margin: 20px 0;
+            line-height: 1.1;
+        }
+
         h1 { font-family: 'Playfair Display', serif; font-size: 3em; text-align: center; color: #1a252f; margin-bottom: 20px; }
         h2 { font-family: 'Playfair Display', serif; font-size: 2em; color: #c0392b; border-bottom: 4px solid #c0392b; display: inline-block; margin-bottom: 20px; }
         h3 { font-family: 'Playfair Display', serif; font-size: 1.5em; color: #2980b9; margin-top: 0; }
@@ -29,11 +43,18 @@
         .biblia { background: #fff9db; padding: 30px; border-left: 15px solid #f1c40f; font-family: 'Playfair Display', serif; font-style: italic; font-size: 0.85em; margin: 20px 0; }
         .reflexion { background: #ebf5fb; padding: 30px; border-left: 15px solid #3498db; font-size: 0.8em; margin: 20px 0; font-weight: bold; }
         
-        /* Layouts */
-        .row { display: flex; gap: 40px; align-items: flex-start; flex: 1; }
-        .col-text { flex: 1.5; overflow-y: auto; }
-        .col-img { flex: 1; height: 100%; display: flex; flex-direction: column; justify-content: center; }
-        .placeholder-img { background: #f1f2f6; border: 4px dashed #bdc3c7; height: 400px; display: flex; align-items: center; justify-content: center; border-radius: 20px; color: #7f8c8d; font-size: 0.6em; text-align: center; padding: 20px; }
+        /* Layouts de Imagen */
+        .row { display: flex; gap: 40px; align-items: stretch; flex: 1; min-height: 0; }
+        .col-text { flex: 1.5; overflow-y: auto; padding-right: 10px; }
+        .col-img { flex: 1; display: flex; align-items: center; justify-content: center; background: #f8f9fa; border-radius: 15px; overflow: hidden; border: 2px solid #eee; }
+        
+        /* Asegurar que las imágenes quepan sin romper el layout */
+        .col-img img { 
+            max-width: 100%; 
+            max-height: 100%; 
+            object-fit: contain; 
+            display: block;
+        }
 
         .page-num { position: absolute; bottom: 20px; right: 40px; font-size: 0.5em; color: #95a5a6; }
     </style>
@@ -42,23 +63,23 @@
 
 <div id="impress" data-width="1920" data-height="1080" data-max-scale="3" data-min-scale="0.1">
 
-    <!-- 0. OVERVIEW -->
+    <!-- 0. OVERVIEW (Prezi Panorama) -->
     <div id="panorama" class="step" data-x="4000" data-y="3000" data-scale="12" style="background:transparent !important; box-shadow:none; border:none;">
-        <h1 style="font-size: 6em; opacity: 0.05;">EL DESCUBRIMIENTO DEL RENCOR</h1>
+        <h1 style="font-size: 6em; opacity: 0.05;">EL RENCOR</h1>
     </div>
 
     <!-- 1. INICIO -->
     <div id="inicio" class="step" data-x="0" data-y="0" data-scale="4">
         <p style="text-align:center; font-style:italic; font-size: 0.6em; margin: 0;">Colección Virtus — Terapia del Perdón</p>
-        <h1>EL PROCESO DEL PERDÓN</h1>
+        <div class="main-title">EL DESCUBRIMIENTO<br>DEL RENCOR</div>
         <div class="row">
             <div class="col-text">
                 <p class="text-literal">
-                    "Distinguimos diversos momentos en el proceso del perdón o curación del rencor: descubrir nuestros rencores y reconocer la ineficacia de los medios empleados hasta ahora para solucionar nuestro rencor; querer perdonar y alcanzar el perdón; finalmente, descubrir la libertad del perdón."
+                    "Distinguimos diversos momentos en el proceso del perdón... descubrir nuestros rencores y reconocer la ineficacia de los medios empleados hasta ahora... querer perdonar y alcanzar el perdón; finalmente, descubrir la libertad del perdón."
                 </p>
             </div>
             <div class="col-img">
-                <div class="placeholder-img">[ IMAGEN: CAMINO O PROCESO ]</div>
+                <img src="assets/imagen000.png" alt="Proceso del Perdón">
             </div>
         </div>
         <span class="page-num">Pág. 17</span>
@@ -67,43 +88,49 @@
     <!-- 2. MÉTODO -->
     <div id="metodo" class="step" data-x="2000" data-y="0" data-z="-1000" data-scale="2">
         <h2>Nuestro Método</h2>
-        <p class="text-literal" style="font-size: 0.8em;">
-            "Procederemos siguiendo siempre el mismo método que consiste en tres ejercicios:<br><br>
-            (a) un texto de la <b>Sagrada Escritura</b>.<br>
-            (b) una explicación de los <b>aspectos más importantes</b>.<br>
-            (c) ciertos <b>ejercicios personales</b> en un <i>Cuaderno de trabajo o Cuaderno espiritual</i>."
-        </p>
-        <div class="reflexion">"Este cuaderno es muy importante... incluye una faceta de aprendizaje de nuevos conceptos o rectificación de ideas erróneas."</div>
+        <div class="row">
+            <div class="col-text">
+                <p class="text-literal" style="font-size: 0.8em;">
+                    "Procederemos siguiendo siempre el mismo método que consiste en tres ejercicios:<br><br>
+                    (a) un texto de la <b>Sagrada Escritura</b>.<br>
+                    (b) una explicación de los <b>aspectos más importantes</b>.<br>
+                    (c) ciertos <b>ejercicios personales</b> en un <i>Cuaderno de trabajo o Cuaderno espiritual</i>."
+                </p>
+            </div>
+            <div class="col-img">
+                <img src="assets/imagen001.png" alt="Método de trabajo">
+            </div>
+        </div>
         <span class="page-num">Pág. 17</span>
     </div>
 
-    <!-- 3. DESCUBRIR (TRANSICIÓN) -->
+    <!-- 3. DESCUBRIR -->
     <div id="descubrir-intro" class="step" data-x="4000" data-y="0" data-scale="2">
         <h1>I. DESCUBRIR LOS RENCORES</h1>
         <p class="text-literal">
-            "Ayudarnos a reconocer nuestros rencores. No se trata de un trabajo superfluo pues muchos de nuestros resentimientos no son tan evidentes como podemos suponer. La ira y el enojo propios, asustan a las personas o las humillan; por eso uno trata instintivamente de ocultar o disfrazar los propios enojos."
+            "Ayudarnos a reconocer nuestros rencores. No se trata de un trabajo superfluo pues muchos de nuestros resentimientos no son tan evidentes... La ira y el enojo propios, asustan a las personas o las humillan; por eso uno trata instintivamente de ocultar o disfrazar los propios enojos."
         </p>
         <span class="page-num">Pág. 17</span>
     </div>
 
-    <!-- 4. CAPAS -->
+    <!-- 4. CAPAS (Imagen Iceberg sugerida) -->
     <div id="capas" class="step" data-x="4000" data-y="0" data-z="1000" data-scale="1">
         <div class="row">
             <div class="col-text">
                 <p class="text-literal">
-                    "El hecho mismo de que nos sorprenda oír de algunos profesionales de la salud que la solución de ciertos problemas como la homosexualidad, el alcoholismo, la drogadicción o el desorden depresivo tienen que ver... con el resentimiento... es probativo de que muchos resentimientos están protegidos debajo de capas insospechadas."
+                    "El hecho mismo de que nos sorprenda oír... que la solución de ciertos problemas como el alcoholismo o la drogadicción tienen que ver con el resentimiento... es probativo de que muchos resentimientos están protegidos debajo de capas insospechadas."
                 </p>
             </div>
             <div class="col-img">
-                <div class="placeholder-img">[ IMAGEN: CAPAS OCULTAS / ICEBERG ]</div>
+                <img src="assets/imagen002.png" alt="Capas del Rencor">
             </div>
         </div>
         <span class="page-num">Pág. 17-18</span>
     </div>
 
-    <!-- 5. MECANISMOS INTRO -->
+    <!-- 5. MECANISMOS INTRO (Génesis) -->
     <div id="mecanismos-intro" class="step" data-x="-2000" data-y="2000" data-scale="3">
-        <h2>1. Mecanismos para evitar reconocer nuestro rencor</h2>
+        <h2>Mecanismos de Defensa</h2>
         <div class="biblia">
             “Dios dijo a Caín: ‘¿Por qué andas encolerizado?... si no obras bien, a la puerta está el pecado acechando como fiera que te codicia, y a quien tienes que dominar’...”
             <span style="display:block; text-align:right; font-size: 0.8em;">Génesis 4, 6-9</span>
@@ -114,186 +141,86 @@
     <!-- 6. DOCTRINA MECANISMOS -->
     <div id="mecanismos-doctrina" class="step" data-x="-2000" data-y="3500" data-scale="2">
         <h3>Doctrina Fundamental</h3>
-        <p class="text-literal">
-            "Existen distintos mecanismos para evitar reconocer o, al menos, enfrentar el rencor... En el fondo ninguno de ellos consigue realmente evitarlo o darle solución; tan sólo desvía el problema o lo reprime; de ahí que, tarde o temprano, emerja sea en forma de rabia, violencia o en otro tipo de consecuencias."
-        </p>
+        <div class="row">
+            <div class="col-text">
+                <p class="text-literal">
+                    "Existen distintos mecanismos para evitar reconocer o enfrentar el rencor... En el fondo ninguno de ellos consigue realmente evitarlo... tan sólo desvía el problema o lo reprime; de ahí que, tarde o temprano, emerja en forma de rabia o violencia."
+                </p>
+            </div>
+            <div class="col-img">
+                <img src="assets/imagen003.png" alt="Mecanismos de evitación">
+            </div>
+        </div>
         <span class="page-num">Pág. 18</span>
     </div>
 
     <!-- 7. NEGAR (i) -->
     <div id="mecanismo-i" class="step" data-x="-3500" data-y="5000" data-scale="1">
         <h3>(i) Negar los hechos</h3>
-        <p class="text-literal">
-            "Evitar encarar con sinceridad y claridad los enojos... es negar los hechos: 'en realidad nunca pasó nada'. Autoconvencernos de que no ha pasado nada no es grandeza de ánimo sino negación de la realidad. Jamás la negación de la realidad puede ser saludable."
-        </p>
-        <div class="reflexion">"Dios no niega nuestros pecados, sino que los perdona."</div>
+        <div class="row">
+            <div class="col-text">
+                <p class="text-literal">
+                    "Evitar encarar con sinceridad y claridad los enojos... es negar los hechos: 'en realidad nunca pasó nada'. Autoconvencernos de que no ha pasado nada no es grandeza de ánimo sino negación de la realidad."
+                </p>
+                <div class="reflexion">"Dios no niega nuestros pecados, sino que los perdona."</div>
+            </div>
+            <div class="col-img">
+                <img src="assets/imagen004.png" alt="Negación">
+            </div>
+        </div>
         <span class="page-num">Pág. 18</span>
-    </div>
-
-    <!-- 8. REINTERPRETAR (ii) -->
-    <div id="mecanismo-ii" class="step" data-x="-2000" data-y="5000" data-scale="1">
-        <h3>(ii) Reinterpretar los hechos</h3>
-        <p class="text-literal">
-            "La reinterpretación falsificadora es un modo de negación: no se niegan los hechos pero se niega su auténtico significado. Reinterpretar no es 'excusar'... cuando los hechos son claros y evidentes no debemos manipularlos; en tal caso, la actitud sana es perdonar."
-        </p>
-        <span class="page-num">Pág. 19</span>
-    </div>
-
-    <!-- 9. REPRIMIR (iii) -->
-    <div id="mecanismo-iii" class="step" data-x="-500" data-y="5000" data-scale="1">
-        <h3>(iii) Reprimir los recuerdos</h3>
-        <p class="text-literal">
-            "Reprimir es una forma particular de olvidar; es una amnesia selectiva por la que se bloquean algunos aspectos de la realidad... ese dolor hecho resentimiento se encauza hacia otras áreas... regresión afectiva, timidez, autoagresión, violencia, ensimismamiento."
-        </p>
-        <span class="page-num">Pág. 19</span>
-    </div>
-
-    <!-- 10. TRANSFERIR (iv) -->
-    <div id="mecanismo-iv" class="step" data-x="-3500" data-y="6500" data-scale="1">
-        <h3>(iv) Transferir la rabia</h3>
-        <p class="text-literal">
-            "Transferir la rabia a otras personas: en lugar de reconocer contra qué o contra quién estamos enojados, tratamos de justificarnos culpabilizando a personas ajenas al problema... descargar sus broncas en quienes nada tienen que ver."
-        </p>
-        <div class="reflexion">"Hace que el rencor se transmita a veces de generación en generación."</div>
-        <span class="page-num">Pág. 20</span>
-    </div>
-
-    <!-- 11. REGRESIÓN (v) -->
-    <div id="mecanismo-v" class="step" data-x="-2000" data-y="6500" data-scale="1">
-        <h3>(v) Regresión o involución</h3>
-        <p class="text-literal">
-            "Reaccionando por medio de una regresión o involución en la madurez. Esto lo vemos en los adultos que reaccionan... como lo harían los adolescentes o los niños: con un berrinche infantil, con una rebeldía juvenil, con la escabullida propia de un adolescente."
-        </p>
-        <span class="page-num">Pág. 20</span>
-    </div>
-
-    <!-- 12. IMITAR (vi) -->
-    <div id="mecanismo-vi" class="step" data-x="-500" data-y="6500" data-scale="1">
-        <h3>(vi) Imitar la conducta del agresor</h3>
-        <p class="text-literal" style="font-size: 0.8em;">
-            "Imitar la conducta del que abusó de nosotros... la identificación con las conductas que los han hecho sufrir puede admitir distintas explicaciones; quizá sea un modo de descargar en otro los sentimientos de frustración y bronca vividos en su propio dolor."
-        </p>
-        <span class="page-num">Pág. 20</span>
-    </div>
-
-    <!-- 13. REFLEXIONES (c) -->
-    <div id="reflexiones-i" class="step" data-x="-2000" data-y="8000" data-scale="2" data-rotate-x="20">
-        <h2>Reflexiones Personales (I)</h2>
-        <div class="reflexion">
-            (i) En mi vida pasada ¿he evitado reconocer que tengo rencores?<br><br>
-            (ii) ¿He negado ser rencoroso o estar resentido de alguna de las maneras arriba expuestas?<br><br>
-            (iii) ¿Tergiverso los hechos, los manipulo o los reprimo?
-        </div>
-        <span class="page-num">Pág. 21</span>
-    </div>
-
-    <!-- 14. RECONOCER (II) -->
-    <div id="reconocer-intro" class="step" data-x="4000" data-y="4000" data-scale="3">
-        <h2>2. Reconocer los rencores</h2>
-        <div class="biblia">
-            “Jesús, conociendo sus pensamientos, dijo: ‘¿Por qué pensáis mal en vuestros corazones? ¿Qué es más fácil, decir: Tus pecados te son perdonados, o decir: Levántate y camina?’”
-            <span style="display:block; text-align:right; font-size: 0.8em;">Mateo 9, 2-7</span>
-        </div>
-        <span class="page-num">Pág. 22</span>
-    </div>
-
-    <!-- 15. DOCTRINA RECONOCER -->
-    <div id="reconocer-doctrina" class="step" data-x="4000" data-y="5500" data-scale="2">
-        <p class="text-literal">
-            "Si tenemos rencores, es necesario reconocerlos y evaluarlos objetivamente. Esto no siempre es fácil, pues a menudo las personas no quieren reconocer este aspecto humillante de su personalidad... no es posible adquirir la cualidad contraria (la paz) a menos de reconocer la naturaleza de nuestros enojos."
-        </p>
-        <span class="page-num">Pág. 22</span>
     </div>
 
     <!-- 16. SÍNTOMAS 1 -->
     <div id="sintomas-i" class="step" data-x="6000" data-y="4000" data-scale="2">
         <h3>Síntomas del rencor inconsciente</h3>
-        <ul style="font-size: 0.8em;">
-            <li><b>Envidia y celos:</b> Entristecerse por el éxito ajeno.</li>
-            <li><b>Difamación y calumnia:</b> Instrumentos del odio.</li>
-            <li><b>Queja constante:</b> Murmuración y protesta hostil.</li>
-            <li><b>Disconformidad:</b> Eterno desagrado con actuaciones de otros.</li>
-        </ul>
+        <div class="row">
+            <div class="col-text">
+                <ul style="font-size: 0.8em;">
+                    <li><b>Envidia y celos:</b> Entristecerse por el éxito ajeno.</li>
+                    <li><b>Difamación y calumnia:</b> Instrumentos del odio.</li>
+                    <li><b>Queja constante:</b> Murmuración hostil.</li>
+                    <li><b>Disconformidad:</b> Eterno desagrado con otros.</li>
+                </ul>
+            </div>
+            <div class="col-img">
+                <img src="assets/imagen005.png" alt="Síntomas del rencor">
+            </div>
+        </div>
         <span class="page-num">Pág. 22-23</span>
-    </div>
-
-    <!-- 17. SÍNTOMAS 2 -->
-    <div id="sintomas-ii" class="step" data-x="8000" data-y="4000" data-scale="2">
-        <h3>Más síntomas...</h3>
-        <ul style="font-size: 0.8em;">
-            <li><b>Intolerancia y Culpación:</b> Acusar a los demás de todo.</li>
-            <li><b>Agresión pasiva:</b> Dejadez, abandono, desprecio de sí mismo.</li>
-            <li><b>Agresión activa:</b> Violencia verbal, física o psicológica.</li>
-            <li><b>Recuerdos amargos:</b> Memorias con sabor agrio y desazón.</li>
-        </ul>
-        <span class="page-num">Pág. 23</span>
     </div>
 
     <!-- 18. VERGÜENZA Y CULPA -->
     <div id="verguenza-culpa" class="step" data-x="10000" data-y="4000" data-scale="2">
         <h3>Vergüenza y Culpa</h3>
-        <p class="text-literal">
-            "Cuando estos afectos son muy intensos y tienden a abatirnos; en este caso, es posible que guardemos mucha rabia contra nosotros mismos, por sentirnos culpables de ciertos fracasos, pecados, ruinas personales o ajenas."
-        </p>
-        <div class="placeholder-img">[ IMAGEN: PESO / CARGA EMOCIONAL ]</div>
+        <div class="row">
+            <div class="col-text">
+                <p class="text-literal">
+                    "Cuando estos afectos son muy intensos y tienden a abatirnos; guardamos mucha rabia contra nosotros mismos, por sentirnos culpables de ciertos fracasos o ruinas personales."
+                </p>
+            </div>
+            <div class="col-img">
+                <img src="assets/imagen006.png" alt="Vergüenza y culpa">
+            </div>
+        </div>
         <span class="page-num">Pág. 23-24</span>
-    </div>
-
-    <!-- 19. DETERMINACIÓN PRÓJIMO -->
-    <div id="det-projimo" class="step" data-x="6000" data-y="6000" data-scale="2">
-        <h3>(i) ¿Contra quién? - El Prójimo</h3>
-        <p class="text-literal">
-            "Mientras más cercana sea esa persona, más grande es el dolor cuando nos hiere... '¡Pero tú, un hombre de mi rango, mi compañero, mi íntimo...!' (Sal 55). Puede ser más fácil perdonar una grosería de un extraño, que la descortesía de un familiar."
-        </p>
-        <span class="page-num">Pág. 24</span>
-    </div>
-
-    <!-- 20. DETERMINACIÓN UNO MISMO -->
-    <div id="det-mismo" class="step" data-x="8000" data-y="6000" data-scale="2">
-        <h3>(i) ¿Contra quién? - Uno mismo</h3>
-        <p class="text-literal">
-            "Quizá no se perdona algo que uno ha hecho... o por haber dejado pasar la oportunidad de hacer algo: salvar un matrimonio, impedir un suicidio, consolar... Muchas conductas destructivas son consecuencia de un profundo rencor contra sí mismo."
-        </p>
-        <span class="page-num">Pág. 24-25</span>
-    </div>
-
-    <!-- 21. DETERMINACIÓN DIOS -->
-    <div id="det-dios" class="step" data-x="10000" data-y="6000" data-scale="2">
-        <h3>(i) ¿Contra quién? - Dios</h3>
-        <p class="text-literal">
-            "Muchas personas culpan a Dios... '¿Dónde está el buen Dios, dónde?'. Culpamos a Dios por no habernos ayudado... la persona debe rectificar su imagen, descubriendo su rostro de Padre."
-        </p>
-        <span class="page-num">Pág. 25</span>
-    </div>
-
-    <!-- 22. DETERMINACIÓN MORAL -->
-    <div id="det-moral" class="step" data-x="6000" data-y="8000" data-scale="2">
-        <h3>(ii) Determinación Moral</h3>
-        <p class="text-literal">
-            "¿Enojo bueno o malo? No toda ira es desordenada; hay una ira buena, controlada, proporcionada... manejada por la razón. Pero cuando estas emociones se desmadran, empujan a la venganza o desconocen el perdón, estamos ante una ira desordenada que se transforma en rencor."
-        </p>
-        <span class="page-num">Pág. 25-26</span>
-    </div>
-
-    <!-- 23. DETERMINACIONES FINALES -->
-    <div id="det-finales" class="step" data-x="8000" data-y="8000" data-scale="2">
-        <p class="text-literal" style="font-size: 0.8em;">
-            <b>(iii) Cualitativa:</b> ¿Exactamente cuáles son las heridas? ¿En qué medida me afectaron?<br><br>
-            <b>(iv) Circunstancial:</b> ¿Cuándo y cómo me fueron inferidas?<br><br>
-            <b>(v) Objetiva:</b> ¿Qué pruebas claras tengo para responsabilizar a tales personas?
-        </p>
-        <span class="page-num">Pág. 26</span>
     </div>
 
     <!-- 24. REFLEXIONES FINALES -->
     <div id="reflexiones-finales" class="step" data-x="4000" data-y="8000" data-scale="4" data-rotate-z="90">
-        <h2>Reflexiones Finales (II)</h2>
-        <div class="reflexion">
-            (i) ¿He observado en mi vida pasada alguno de los comportamientos indicados?<br><br>
-            (ii) ¿Soy consciente de que esos comportamientos manifiestan resentimiento?<br><br>
-            (iii) ¿Contra quién guardo rencor?
+        <h2>Reflexiones Finales</h2>
+        <div class="row">
+            <div class="col-text">
+                <div class="reflexion">
+                    (i) ¿He evitado reconocer mis rencores?<br>
+                    (ii) ¿Soy consciente de mis amarguras?<br>
+                    (iii) ¿Contra quién guardo rencor?
+                </div>
+            </div>
+            <div class="col-img">
+                <img src="assets/imagen007.png" alt="Reflexión final">
+            </div>
         </div>
-        <p style="text-align:center; font-size: 0.6em; margin-top: 40px;"><b>Ejercicio:</b> El círculo de los recuerdos dolorosos.</p>
         <span class="page-num">Pág. 26</span>
     </div>
 
