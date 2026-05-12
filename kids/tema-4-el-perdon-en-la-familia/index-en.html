@@ -13,22 +13,27 @@
         .fallback-message { display: none; }
         .impress-supported .fallback-message { display: none; }
 
+        /* HIDE EVERYTHING THAT IS NOT THE ACTIVE SLIDE */
         .step { 
             width: 1400px; 
             height: 900px;
             padding: 80px; 
-            background: white; 
+            background: white !important; 
             border-radius: 50px; 
             box-shadow: 0 30px 70px rgba(0,0,0,0.2); 
             border: 15px solid #ffcf00; 
-            opacity: 0; 
-            transition: opacity 0.5s;
+            opacity: 0 !important; 
+            transition: opacity 0.3s; 
             display: flex;
             flex-direction: column;
             justify-content: center;
             font-size: 2.2em;
         }
-        .step.active { opacity: 1; }
+
+        /* SHOW ONLY THE ACTIVE ONE */
+        .step.active { 
+            opacity: 1 !important; 
+        }
 
         h1 { font-family: 'Luckiest Guy', cursive; color: #e63946; text-align: center; font-size: 4.5em; margin-bottom: 30px; }
         h2 { font-family: 'Luckiest Guy', cursive; color: #4361ee; text-align: center; font-size: 3.5em; margin-bottom: 30px; }
