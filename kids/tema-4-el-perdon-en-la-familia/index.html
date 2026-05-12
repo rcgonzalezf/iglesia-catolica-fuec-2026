@@ -15,12 +15,11 @@
         /* REGLAS DE VISIBILIDAD ESTRICTA */
         .step { 
             width: 1400px; height: 900px; padding: 80px; 
-            background: white !important; /* Blanco sólido absoluto */
+            background: white !important; 
             border-radius: 50px; 
             box-shadow: 0 30px 70px rgba(0,0,0,0.2); 
             border: 15px solid #ffcf00; 
             
-            /* Ocultar por defecto */
             opacity: 0 !important; 
             visibility: hidden !important;
             pointer-events: none;
@@ -30,12 +29,11 @@
             flex-direction: column; justify-content: center; font-size: 2.2em;
         }
 
-        /* MOSTRAR ÚNICAMENTE LA ACTIVA */
         .step.active { 
             opacity: 1 !important; 
             visibility: visible !important;
             pointer-events: auto;
-            z-index: 9999 !important; /* Siempre arriba */
+            z-index: 9999 !important;
         }
 
         h1 { font-family: 'Luckiest Guy', cursive; color: #e63946; text-align: center; font-size: 4.5em; margin-bottom: 30px; }
@@ -100,7 +98,7 @@
 
     <div id="video-play" class="step" data-x="4500" data-y="1000" data-scale="3">
         <div class="video-container">
-            <video id="pardon-video" controls>
+            <video id="pardon-video" controls preload="auto">
                 <source src="VideoPerdonEnLaFamilia.mp4" type="video/mp4">
             </video>
         </div>
@@ -154,8 +152,26 @@
     var api = impress();
     api.init();
     var video = document.getElementById('pardon-video');
-    document.addEventListener('impress:stepenter', function(e) { if (e.target.id === 'video-play') video.play(); });
-    document.addEventListener('impress:stepleave', function(e) { if (e.target.id === 'video-play') { video.pause(); video.currentTime = 0; } });
+    
+    document.addEventListener('impress:stepenter', function(e) { 
+        if (e.target.id === 'video-play') {
+            var playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise.then(_ => {
+                    // Autoplay started!
+                }).catch(error => {
+                    console.log("Autoplay prevented or interrupted:", error);
+                });
+            }
+        }
+    });
+
+    document.addEventListener('impress:stepleave', function(e) { 
+        if (e.target.id === 'video-play') { 
+            video.pause(); 
+            video.currentTime = 0; 
+        } 
+    });
 </script>
 
 </body>
