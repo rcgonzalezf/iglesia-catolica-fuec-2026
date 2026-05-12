@@ -21,13 +21,13 @@
         }
         .step.active { opacity: 1 !important; visibility: visible !important; z-index: 100; pointer-events: auto; }
 
-        /* Título Principal - Ajustado para contraste y tamaño */
+        /* Título Principal */
         .main-title { 
             font-family: 'Playfair Display', serif; 
-            font-size: 2.5em; /* Reducido para que no se parta */
+            font-size: 2.5em; 
             text-align: center; 
             color: white; 
-            background: #c0392b; /* Fondo oscuro para contraste */
+            background: #c0392b; 
             padding: 40px;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(192, 57, 43, 0.3);
@@ -43,18 +43,11 @@
         .biblia { background: #fff9db; padding: 30px; border-left: 15px solid #f1c40f; font-family: 'Playfair Display', serif; font-style: italic; font-size: 0.85em; margin: 20px 0; }
         .reflexion { background: #ebf5fb; padding: 30px; border-left: 15px solid #3498db; font-size: 0.8em; margin: 20px 0; font-weight: bold; }
         
-        /* Layouts de Imagen */
         .row { display: flex; gap: 40px; align-items: stretch; flex: 1; min-height: 0; }
         .col-text { flex: 1.5; overflow-y: auto; padding-right: 10px; }
         .col-img { flex: 1; display: flex; align-items: center; justify-content: center; background: #f8f9fa; border-radius: 15px; overflow: hidden; border: 2px solid #eee; }
         
-        /* Asegurar que las imágenes quepan sin romper el layout */
-        .col-img img { 
-            max-width: 100%; 
-            max-height: 100%; 
-            object-fit: contain; 
-            display: block;
-        }
+        .col-img img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
 
         .page-num { position: absolute; bottom: 20px; right: 40px; font-size: 0.5em; color: #95a5a6; }
     </style>
@@ -63,9 +56,9 @@
 
 <div id="impress" data-width="1920" data-height="1080" data-max-scale="3" data-min-scale="0.1">
 
-    <!-- 0. OVERVIEW (Prezi Panorama) -->
+    <!-- 0. OVERVIEW (PANORAMA CORREGIDO) -->
     <div id="panorama" class="step" data-x="4000" data-y="3000" data-scale="12" style="background:transparent !important; box-shadow:none; border:none;">
-        <h1 style="font-size: 6em; opacity: 0.05;">EL RENCOR</h1>
+        <h1 style="font-size: 8em; color: #1a252f; text-shadow: 5px 5px 20px rgba(0,0,0,0.1); font-weight: 900;">EL RENCOR</h1>
     </div>
 
     <!-- 1. INICIO -->
@@ -113,7 +106,7 @@
         <span class="page-num">Pág. 17</span>
     </div>
 
-    <!-- 4. CAPAS (Imagen Iceberg sugerida) -->
+    <!-- 4. CAPAS -->
     <div id="capas" class="step" data-x="4000" data-y="0" data-z="1000" data-scale="1">
         <div class="row">
             <div class="col-text">
@@ -128,7 +121,7 @@
         <span class="page-num">Pág. 17-18</span>
     </div>
 
-    <!-- 5. MECANISMOS INTRO (Génesis) -->
+    <!-- 5. MECANISMOS INTRO -->
     <div id="mecanismos-intro" class="step" data-x="-2000" data-y="2000" data-scale="3">
         <h2>Mecanismos de Defensa</h2>
         <div class="biblia">
