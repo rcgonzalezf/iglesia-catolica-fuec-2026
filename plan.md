@@ -27,18 +27,18 @@ Implementar un sistema de presentaciones dinámicas (estilo Prezi) usando **impr
 
 ## 🚀 Próximos Pasos (Pendientes)
 
-### 3. Tema Adultos (3 Sesiones)
+### 3. Tema Adultos (3 Sesiones) - Solo Español
 *   **Sesión 2: El Descubrimiento del Rencor** (Ref: pp. 17-26 del libro).
-    *   [ ] Crear estructura de carpetas y `prompt.md`.
-    *   [ ] Diseñar presentación interactiva (ES/EN).
+    *   [x] Crear estructura de carpetas y `prompt.md`.
+    *   [ ] Diseñar presentación interactiva (Solo ES).
 *   **Sesión 6: Gratitud y Sanación de los Recuerdos** (Ref: pp. 49-55 del libro).
     *   [ ] Crear estructura de carpetas y `prompt.md`.
-    *   [ ] Diseñar presentación interactiva (ES/EN).
+    *   [ ] Diseñar presentación interactiva (Solo ES).
 *   **Sesión 12: El Perdón como Camino a la Libertad** (Ref: pp. 82-85 del libro).
     *   [ ] Crear estructura de carpetas y `prompt.md`.
-    *   [ ] Diseñar presentación interactiva (ES/EN).
+    *   [ ] Diseñar presentación interactiva (Solo ES).
 
-### 4. Tema Adolescentes (Tema 6: Perdonar a Dios)
+### 4. Tema Adolescentes (Tema 6: Perdonar a Dios) - Bilingüe (ES/EN)
 *   **Tema 6: Sanar la imagen del Padre** (Ref: pp. 25, 47-48, 52, 91 del libro).
     *   [ ] Crear estructura de carpetas y `prompt.md`.
     *   [ ] Diseñar presentación interactiva (ES/EN).
