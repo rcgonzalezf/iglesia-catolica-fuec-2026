@@ -21,18 +21,10 @@
         }
         .step.active { opacity: 1 !important; visibility: visible !important; z-index: 100; pointer-events: auto; }
 
-        /* Título Principal */
         .main-title { 
-            font-family: 'Playfair Display', serif; 
-            font-size: 2.5em; 
-            text-align: center; 
-            color: white; 
-            background: #c0392b; 
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(192, 57, 43, 0.3);
-            margin: 20px 0;
-            line-height: 1.1;
+            font-family: 'Playfair Display', serif; font-size: 2.5em; text-align: center; 
+            color: white; background: #c0392b; padding: 40px; border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(192, 57, 43, 0.3); margin: 20px 0; line-height: 1.1;
         }
 
         h1 { font-family: 'Playfair Display', serif; font-size: 3em; text-align: center; color: #1a252f; margin-bottom: 20px; }
@@ -46,8 +38,26 @@
         .row { display: flex; gap: 40px; align-items: stretch; flex: 1; min-height: 0; }
         .col-text { flex: 1.5; overflow-y: auto; padding-right: 10px; }
         .col-img { flex: 1; display: flex; align-items: center; justify-content: center; background: #f8f9fa; border-radius: 15px; overflow: hidden; border: 2px solid #eee; }
-        
         .col-img img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
+
+        /* Video Styles */
+        .video-container { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; background: #000; border-radius: 20px; overflow: hidden; }
+        video { width: 100%; height: 100%; object-fit: contain; }
+        .video-thumbnail {
+            width: 80%; margin: 20px auto; height: 350px;
+            background: #2d3436; border-radius: 20px;
+            display: flex; justify-content: center; align-items: center;
+            position: relative; border: 8px solid #c0392b; cursor: pointer;
+        }
+        .play-button {
+            width: 100px; height: 100px; background: #c0392b;
+            border-radius: 50%; display: flex; justify-content: center; align-items: center;
+        }
+        .play-button::after {
+            content: ""; display: block; width: 0; height: 0;
+            border-top: 20px solid transparent; border-bottom: 20px solid transparent;
+            border-left: 35px solid white; margin-left: 8px;
+        }
 
         .page-num { position: absolute; bottom: 20px; right: 40px; font-size: 0.5em; color: #95a5a6; }
     </style>
@@ -56,7 +66,7 @@
 
 <div id="impress" data-width="1920" data-height="1080" data-max-scale="3" data-min-scale="0.1">
 
-    <!-- 0. OVERVIEW (PANORAMA CORREGIDO) -->
+    <!-- 0. OVERVIEW -->
     <div id="panorama" class="step" data-x="4000" data-y="3000" data-scale="12" style="background:transparent !important; box-shadow:none; border:none;">
         <h1 style="font-size: 8em; color: #1a252f; text-shadow: 5px 5px 20px rgba(0,0,0,0.1); font-weight: 900;">El Descubrimiento<br>del Rencor</h1>
     </div>
@@ -121,7 +131,7 @@
         <span class="page-num">Pág. 17-18</span>
     </div>
 
-    <!-- 5. MECANISMOS INTRO -->
+    <!-- 5. MECANISMOS INTRO (Génesis) -->
     <div id="mecanismos-intro" class="step" data-x="-2000" data-y="2000" data-scale="3">
         <h2>Mecanismos de Defensa</h2>
         <div class="biblia">
@@ -129,6 +139,25 @@
             <span style="display:block; text-align:right; font-size: 0.8em;">Génesis 4, 6-9</span>
         </div>
         <span class="page-num">Pág. 18</span>
+    </div>
+
+    <!-- NUEVO: PREVIEW LEY DEL TALIÓN -->
+    <div id="talion-preview" class="step" data-x="-2000" data-y="0" data-scale="1">
+        <h3 style="text-align:center;">Contexto Histórico</h3>
+        <h2 style="display:block; text-align:center;">La Ley del Talión</h2>
+        <div class="video-thumbnail">
+            <div class="play-button"></div>
+        </div>
+        <p style="text-align:center; font-size: 0.6em;">"Ojo por ojo, diente por diente"</p>
+    </div>
+
+    <!-- NUEVO: VIDEO LEY DEL TALIÓN -->
+    <div id="talion-video-step" class="step" data-x="-3500" data-y="0" data-scale="2">
+        <div class="video-container">
+            <video id="talion-video" controls preload="auto">
+                <source src="assets/ojoPorOjo.mp4" type="video/mp4">
+            </video>
+        </div>
     </div>
 
     <!-- 6. DOCTRINA MECANISMOS -->
@@ -221,7 +250,27 @@
 
 <script src="../../js/impress.js"></script>
 <script>
-    impress().init();
+    var api = impress();
+    api.init();
+
+    // Control de video automático para Adultos
+    var vTalion = document.getElementById('talion-video');
+    
+    document.addEventListener('impress:stepenter', function(e) {
+        if (e.target.id === 'talion-video-step') {
+            var playPromise = vTalion.play();
+            if (playPromise !== undefined) {
+                playPromise.then(_ => {}).catch(error => console.log("Video playback interrupted:", error));
+            }
+        }
+    });
+
+    document.addEventListener('impress:stepleave', function(e) {
+        if (e.target.id === 'talion-video-step') {
+            vTalion.pause();
+            vTalion.currentTime = 0;
+        }
+    });
 </script>
 
 </body>
