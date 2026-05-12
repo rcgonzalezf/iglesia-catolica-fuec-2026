@@ -11,29 +11,15 @@
         body { font-family: 'Comic Neue', cursive; background: #f0f9ff; color: #333; margin: 0; overflow: hidden; }
         
         .fallback-message { display: none; }
-        .impress-supported .fallback-message { display: none; }
-
-        /* HIDE EVERYTHING THAT IS NOT THE ACTIVE SLIDE */
         .step { 
-            width: 1400px; 
-            height: 900px;
-            padding: 80px; 
-            background: white !important; 
-            border-radius: 50px; 
+            width: 1400px; height: 900px; padding: 80px; 
+            background: white !important; border-radius: 50px; 
             box-shadow: 0 30px 70px rgba(0,0,0,0.2); 
-            border: 15px solid #ffcf00; 
-            opacity: 0 !important; 
-            transition: opacity 0.3s; 
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            font-size: 2.2em;
+            border: 15px solid #ffcf00; opacity: 0 !important; 
+            transition: opacity 0.3s; display: flex;
+            flex-direction: column; justify-content: center; font-size: 2.2em;
         }
-
-        /* SHOW ONLY THE ACTIVE ONE */
-        .step.active { 
-            opacity: 1 !important; 
-        }
+        .step.active { opacity: 1 !important; }
 
         h1 { font-family: 'Luckiest Guy', cursive; color: #e63946; text-align: center; font-size: 4.5em; margin-bottom: 30px; }
         h2 { font-family: 'Luckiest Guy', cursive; color: #4361ee; text-align: center; font-size: 3.5em; margin-bottom: 30px; }
@@ -45,12 +31,26 @@
         .lista li { margin-bottom: 20px; }
         .lista li::before { content: "✨ "; }
         
-        .actividad { 
-            background: #fffafa; 
-            border: 8px dashed #e63946; 
-            padding: 40px; 
-            border-radius: 40px; 
-            text-align: center;
+        /* Video Styles */
+        .video-container { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; background: #000; border-radius: 30px; overflow: hidden; }
+        video { width: 100%; height: 100%; object-fit: contain; }
+        
+        .video-thumbnail {
+            width: 80%; margin: 0 auto; height: 400px;
+            background: #2d3436; border-radius: 30px;
+            display: flex; justify-content: center; align-items: center;
+            position: relative; border: 10px solid #e63946;
+            cursor: pointer;
+        }
+        .play-button {
+            width: 120px; height: 120px; background: #e63946;
+            border-radius: 50%; display: flex; justify-content: center; align-items: center;
+            box-shadow: 0 0 30px rgba(230, 57, 70, 0.5);
+        }
+        .play-button::after {
+            content: ""; display: block; width: 0; height: 0;
+            border-top: 25px solid transparent; border-bottom: 25px solid transparent;
+            border-left: 45px solid white; margin-left: 10px;
         }
 
         .highlight { color: #e63946; font-weight: bold; }
@@ -61,79 +61,76 @@
 
 <div id="impress" data-width="1920" data-height="1080" data-max-scale="2" data-min-scale="0.5" data-perspective="1000">
 
-    <!-- START -->
     <div id="inicio" class="step" data-x="0" data-y="0" data-scale="4">
         <h1>Forgiveness in the Family!</h1>
         <p style="text-align:center; font-size: 1.3em;">At home is where we learn to <b>truly love</b></p>
         <img src="https://img.icons8.com/color/240/family--v1.png" alt="Family">
     </div>
 
-    <!-- THE SCHOOL OF LOVE -->
     <div id="escuela" class="step" data-x="0" data-y="2500" data-rotate="90" data-scale="2">
         <h2>Family is our School</h2>
-        <p>God intended the family to be the first place where we learn:</p>
         <ul class="lista">
             <li>To love and respect</li>
             <li>To share and help</li>
             <li>To <span class="highlight">ask for forgiveness</span> and to <span class="highlight">forgive</span></li>
         </ul>
-        <div class="cec">
-            “The family is the original cell of social life.” (CCC 2207)
+        <div class="cec">“The family is the original cell of social life.” (CCC 2207)</div>
+    </div>
+
+    <!-- VIDEO PREVIEW -->
+    <div id="video-preview" class="step" data-x="2500" data-y="1000" data-scale="1">
+        <h2 style="margin-bottom: 50px;">Let's watch a Video!</h2>
+        <div class="video-thumbnail">
+            <div class="play-button"></div>
+        </div>
+        <p style="text-align:center; margin-top: 30px; font-size: 0.8em;">Click to see the story</p>
+    </div>
+
+    <!-- VIDEO PLAYBACK -->
+    <div id="video-play" class="step" data-x="4500" data-y="1000" data-scale="3">
+        <div class="video-container">
+            <video id="pardon-video" controls>
+                <source src="VideoPerdonEnLaFamilia.mp4" type="video/mp4">
+                Your browser does not support videos.
+            </video>
         </div>
     </div>
 
-    <!-- FIGHTS AND MISTAKES -->
     <div id="peleas" class="step" data-x="3000" data-y="2500" data-scale="2">
         <h2>What happens when we fight? ☁️</h2>
-        <p>In every family there are:</p>
         <ul class="lista">
             <li>Sibling fights</li>
             <li>Words that hurt</li>
             <li>Anger or misunderstandings</li>
         </ul>
-        <p>It's okay! We are all <b>learning to love better</b>.</p>
-        <div class="biblia">
-            “Forgive one another as the Lord has forgiven you.” (Colossians 3:13)
-        </div>
+        <div class="biblia">“Forgive one another as the Lord has forgiven you.” (Colossians 3:13)</div>
     </div>
 
-    <!-- FORGIVENESS HEALS -->
     <div id="sana" class="step" data-x="6000" data-y="2500" data-rotate="-90" data-scale="2">
-        <h2>Forgiveness Heals the Heart! ❤️</h2>
-        <p>When someone at home asks for forgiveness:</p>
+        <h2>Forgiveness Heals! ❤️</h2>
         <ul class="lista">
             <li>The heart calms down</li>
             <li>The relationship is fixed</li>
             <li>Love shines brighter</li>
         </ul>
-        <div class="cec">
-            “The education of children takes place primarily in the family... learning to forgive.” (CCC 2227)
-        </div>
+        <div class="cec">“The education of children takes place primarily in the family...” (CCC 2227)</div>
     </div>
 
-    <!-- JESUS AT THE CENTER -->
     <div id="jesus" class="step" data-x="6000" data-y="5500" data-scale="2">
         <h2>Jesus Unites the Family</h2>
-        <p>Jesus gave His life to teach us that forgiveness is stronger than anger.</p>
         <h1 style="color:#009688; font-size: 5em;">THE CROSS ✝️</h1>
-        <p style="text-align:center;">It is the sign of God's total love.</p>
-        <div class="cec">
-            “The cross of Christ is the sign of God’s total love for us.” (CCC 618)
-        </div>
+        <div class="cec">“The cross of Christ is the sign of God’s total love for us.” (CCC 618)</div>
     </div>
 
-    <!-- ACTIVITY: TWO SHEETS AND A CROSS -->
     <div id="actividad" class="step" data-x="3000" data-y="5500" data-rotate="180" data-scale="2">
-        <div class="actividad">
+        <div class="actividad" style="border: 8px dashed #e63946; padding: 40px; border-radius: 40px;">
             <h2>ACTIVITY: Two Sheets and a Cross</h2>
-            <p>1. On <span class="highlight">Sheet 1</span>: Draw fights and anger.</p>
-            <p>2. On <span class="highlight">Sheet 2</span>: Draw hugs and joy.</p>
+            <p>1. On <span class="highlight">Sheet 1</span>: Draw the fights.</p>
+            <p>2. On <span class="highlight">Sheet 2</span>: Draw the joy.</p>
             <p>3. <b>In the middle</b>: Place the Cross of Jesus.</p>
-            <p style="font-size: 1.1em; margin-top: 30px; font-weight: bold;">"Jesus unites our family with His love!"</p>
         </div>
     </div>
 
-    <!-- CLOSING -->
     <div id="final" class="step" data-x="0" data-y="5500" data-scale="3">
         <h1>CLOSING PRAYER</h1>
         <p style="text-align:center; font-size: 1.4em; line-height: 1.6;">"Jesus, thank you for my family. Help us to forgive each other when we make mistakes. Fill our home with love, peace, and unity. Amen."</p>
@@ -144,7 +141,24 @@
 
 <script src="../../js/impress.js"></script>
 <script>
-    impress().init();
+    var api = impress();
+    api.init();
+
+    // Automatic video control
+    var video = document.getElementById('pardon-video');
+    
+    document.addEventListener('impress:stepenter', function(e) {
+        if (e.target.id === 'video-play') {
+            video.play();
+        }
+    });
+
+    document.addEventListener('impress:stepleave', function(e) {
+        if (e.target.id === 'video-play') {
+            video.pause();
+            video.currentTime = 0; 
+        }
+    });
 </script>
 
 </body>

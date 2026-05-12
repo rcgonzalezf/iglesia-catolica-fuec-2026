@@ -11,29 +11,15 @@
         body { font-family: 'Comic Neue', cursive; background: #f0f9ff; color: #333; margin: 0; overflow: hidden; }
         
         .fallback-message { display: none; }
-        .impress-supported .fallback-message { display: none; }
-
-        /* OCULTAR TODO LO QUE NO SEA LA DIAPOSITIVA ACTIVA */
         .step { 
-            width: 1400px; 
-            height: 900px;
-            padding: 80px; 
-            background: white !important; /* Fondo sólido */
-            border-radius: 50px; 
+            width: 1400px; height: 900px; padding: 80px; 
+            background: white !important; border-radius: 50px; 
             box-shadow: 0 30px 70px rgba(0,0,0,0.2); 
-            border: 15px solid #ffcf00; 
-            opacity: 0 !important; /* Totalmente invisible por defecto */
-            transition: opacity 0.3s; /* Transición más rápida */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            font-size: 2.2em;
+            border: 15px solid #ffcf00; opacity: 0 !important; 
+            transition: opacity 0.3s; display: flex;
+            flex-direction: column; justify-content: center; font-size: 2.2em;
         }
-
-        /* MOSTRAR SOLO LA ACTIVA */
-        .step.active { 
-            opacity: 1 !important; 
-        }
+        .step.active { opacity: 1 !important; }
 
         h1 { font-family: 'Luckiest Guy', cursive; color: #e63946; text-align: center; font-size: 4.5em; margin-bottom: 30px; }
         h2 { font-family: 'Luckiest Guy', cursive; color: #4361ee; text-align: center; font-size: 3.5em; margin-bottom: 30px; }
@@ -45,12 +31,26 @@
         .lista li { margin-bottom: 20px; }
         .lista li::before { content: "✨ "; }
         
-        .actividad { 
-            background: #fffafa; 
-            border: 8px dashed #e63946; 
-            padding: 40px; 
-            border-radius: 40px; 
-            text-align: center;
+        /* Estilos para el Video */
+        .video-container { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; background: #000; border-radius: 30px; overflow: hidden; }
+        video { width: 100%; height: 100%; object-fit: contain; }
+        
+        .video-thumbnail {
+            width: 80%; margin: 0 auto; height: 400px;
+            background: #2d3436; border-radius: 30px;
+            display: flex; justify-content: center; align-items: center;
+            position: relative; border: 10px solid #e63946;
+            cursor: pointer;
+        }
+        .play-button {
+            width: 120px; height: 120px; background: #e63946;
+            border-radius: 50%; display: flex; justify-content: center; align-items: center;
+            box-shadow: 0 0 30px rgba(230, 57, 70, 0.5);
+        }
+        .play-button::after {
+            content: ""; display: block; width: 0; height: 0;
+            border-top: 25px solid transparent; border-bottom: 25px solid transparent;
+            border-left: 45px solid white; margin-left: 10px;
         }
 
         .highlight { color: #e63946; font-weight: bold; }
@@ -61,79 +61,76 @@
 
 <div id="impress" data-width="1920" data-height="1080" data-max-scale="2" data-min-scale="0.5" data-perspective="1000">
 
-    <!-- INICIO -->
     <div id="inicio" class="step" data-x="0" data-y="0" data-scale="4">
         <h1>¡El Perdón en la Familia!</h1>
         <p style="text-align:center; font-size: 1.3em;">En casa aprendemos a <b>amar de verdad</b></p>
         <img src="https://img.icons8.com/color/240/family--v1.png" alt="Familia">
     </div>
 
-    <!-- LA ESCUELA DEL AMOR -->
     <div id="escuela" class="step" data-x="0" data-y="2500" data-rotate="90" data-scale="2">
         <h2>La Familia es nuestra Escuela</h2>
-        <p>Dios quiso que la familia sea el primer lugar para aprender:</p>
         <ul class="lista">
             <li>A amar y respetar</li>
             <li>A compartir y ayudar</li>
             <li>A <span class="highlight">pedir perdón</span> y a <span class="highlight">perdonar</span></li>
         </ul>
-        <div class="cec">
-            "La familia es la célula original de la vida social" (CEC 2207)
+        <div class="cec">"La familia es la célula original de la vida social" (CEC 2207)</div>
+    </div>
+
+    <!-- PREVIEW DEL VIDEO -->
+    <div id="video-preview" class="step" data-x="2500" data-y="1000" data-scale="1">
+        <h2 style="margin-bottom: 50px;">¡Miremos un Video!</h2>
+        <div class="video-thumbnail">
+            <div class="play-button"></div>
+        </div>
+        <p style="text-align:center; margin-top: 30px; font-size: 0.8em;">Haz click para ver la historia</p>
+    </div>
+
+    <!-- REPRODUCCIÓN DEL VIDEO -->
+    <div id="video-play" class="step" data-x="4500" data-y="1000" data-scale="3">
+        <div class="video-container">
+            <video id="pardon-video" controls>
+                <source src="VideoPerdonEnLaFamilia.mp4" type="video/mp4">
+                Tu navegador no soporta videos.
+            </video>
         </div>
     </div>
 
-    <!-- PELEAS Y ERRORES -->
     <div id="peleas" class="step" data-x="3000" data-y="2500" data-scale="2">
         <h2>¿Qué pasa cuando nos peleamos? ☁️</h2>
-        <p>En todas las familias hay:</p>
         <ul class="lista">
             <li>Peleas entre hermanos</li>
             <li>Palabras que duelen</li>
             <li>Enojo o malentendidos</li>
         </ul>
-        <p>¡No pasa nada! Todos estamos <b>aprendiendo a amar mejor</b>.</p>
-        <div class="biblia">
-            "Perdónense unos a otros como el Señor los ha perdonado" (Colosenses 3,13)
-        </div>
+        <div class="biblia">"Perdónense unos a otros como el Señor los ha perdonado" (Colosenses 3,13)</div>
     </div>
 
-    <!-- EL PERDÓN SANA -->
     <div id="sana" class="step" data-x="6000" data-y="2500" data-rotate="-90" data-scale="2">
         <h2>¡El Perdón Sana el Corazón! ❤️</h2>
-        <p>Cuando alguien pide perdón en casa:</p>
         <ul class="lista">
             <li>El corazón se calma</li>
             <li>La relación se arregla</li>
             <li>El amor brilla más fuerte</li>
         </ul>
-        <div class="cec">
-            "La educación de los hijos se realiza principalmente en la familia... aprendiendo a perdonar." (CEC 2227)
-        </div>
+        <div class="cec">"La educación de los hijos se realiza principalmente en la familia..." (CEC 2227)</div>
     </div>
 
-    <!-- JESÚS EN EL CENTRO -->
     <div id="jesus" class="step" data-x="6000" data-y="5500" data-scale="2">
         <h2>Jesús une a la Familia</h2>
-        <p>Jesús dio su vida para enseñarnos que el perdón es más fuerte que el enojo.</p>
         <h1 style="color:#009688; font-size: 5em;">LA CRUZ ✝️</h1>
-        <p style="text-align:center;">Es el signo del amor total de Dios.</p>
-        <div class="cec">
-            "La cruz de Cristo es el signo del amor total de Dios por nosotros." (CEC 618)
-        </div>
+        <div class="cec">"La cruz de Cristo es el signo del amor total de Dios por nosotros." (CEC 618)</div>
     </div>
 
-    <!-- ACTIVIDAD: DOS HOJAS Y UNA CRUZ -->
     <div id="actividad" class="step" data-x="3000" data-y="5500" data-rotate="180" data-scale="2">
-        <div class="actividad">
+        <div class="actividad" style="border: 8px dashed #e63946; padding: 40px; border-radius: 40px;">
             <h2>ACTIVIDAD: Dos Hojas y una Cruz</h2>
-            <p>1. En la <span class="highlight">Hoja 1</span>: Dibuja las peleas y el enojo.</p>
-            <p>2. En la <span class="highlight">Hoja 2</span>: Dibuja los abrazos y la alegría.</p>
+            <p>1. En la <span class="highlight">Hoja 1</span>: Dibuja las peleas.</p>
+            <p>2. En la <span class="highlight">Hoja 2</span>: Dibuja la alegría.</p>
             <p>3. <b>En el medio</b>: Pon la Cruz de Jesús.</p>
-            <p style="font-size: 1.1em; margin-top: 30px; font-weight: bold;">"¡Jesús une nuestra familia con su amor!"</p>
         </div>
     </div>
 
-    <!-- CIERRE -->
     <div id="final" class="step" data-x="0" data-y="5500" data-scale="3">
         <h1>ORACIÓN FINAL</h1>
         <p style="text-align:center; font-size: 1.4em; line-height: 1.6;">"Jesús, gracias por mi familia. Ayúdanos a perdonarnos cuando nos equivocamos. Haz que nuestro hogar esté lleno de amor, paz y unidad. Amén."</p>
@@ -144,7 +141,24 @@
 
 <script src="../../js/impress.js"></script>
 <script>
-    impress().init();
+    var api = impress();
+    api.init();
+
+    // Control de video automático
+    var video = document.getElementById('pardon-video');
+    
+    document.addEventListener('impress:stepenter', function(e) {
+        if (e.target.id === 'video-play') {
+            video.play();
+        }
+    });
+
+    document.addEventListener('impress:stepleave', function(e) {
+        if (e.target.id === 'video-play') {
+            video.pause();
+            video.currentTime = 0; // Reiniciar video
+        }
+    });
 </script>
 
 </body>
