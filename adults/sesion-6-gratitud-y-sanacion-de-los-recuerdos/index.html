@@ -6,7 +6,6 @@
     <title>Sesión 6 - Gratitud y Sanación de los Recuerdos</title>
 
     <style>
-        /* Reutilizamos los estilos del framework de la sesión 2 para consistencia */
         @font-face {
             font-family: 'Montserrat'; font-style: normal; font-weight: 400; font-display: swap;
             src: url('../sesion-2-el-descubrimiento-del-rencor/assets/fonts/montserrat-400-latin-ext.woff2') format('woff2');
@@ -19,8 +18,30 @@
             font-family: 'Playfair Display'; font-style: normal; font-weight: 700; font-display: swap;
             src: url('../sesion-2-el-descubrimiento-del-rencor/assets/fonts/playfair-display-700-latin-ext.woff2') format('woff2');
         }
+        @font-face {
+            font-family: 'Playfair Display'; font-style: italic; font-weight: 400; font-display: swap;
+            src: url('../sesion-2-el-descubrimiento-del-rencor/assets/fonts/playfair-display-italic-400-latin-ext.woff2') format('woff2');
+        }
 
-        body { font-family: 'Montserrat', sans-serif; background: #f4f7f6; color: #2c3e50; margin: 0; overflow: hidden; }
+        body { font-family: 'Montserrat', sans-serif; background: #eef2f3; color: #2c3e50; margin: 0; overflow: hidden; }
+
+        #slide-load-error {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background: #1a252f;
+            color: #ecf0f1;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            text-align: center;
+        }
+        #slide-load-error:not([hidden]) { display: flex; flex-direction: column; gap: 1rem; }
+        #slide-load-error a { color: #5dade2; }
 
         .step {
             width: 1400px; height: 900px; padding: 60px;
@@ -29,63 +50,114 @@
             opacity: 0 !important; visibility: hidden !important;
             transition: opacity 0.5s, transform 0.8s;
             display: flex; flex-direction: column; font-size: 2.2em;
+            pointer-events: none;
         }
-        .step.active { opacity: 1 !important; visibility: visible !important; z-index: 100; }
+        .step.active { opacity: 1 !important; visibility: visible !important; z-index: 100; pointer-events: auto; }
+
+        .main-title {
+            font-family: 'Playfair Display', serif; font-size: 2.5em; text-align: center;
+            color: white; background: #1e8449; padding: 40px; border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(30, 132, 73, 0.3); margin: 20px 0; line-height: 1.1;
+        }
 
         h1 { font-family: 'Playfair Display', serif; font-size: 2.8em; text-align: center; color: #1a252f; margin-bottom: 20px; }
         h2 { font-family: 'Playfair Display', serif; font-size: 1.8em; color: #1e8449; border-bottom: 4px solid #1e8449; display: inline-block; margin-bottom: 20px; }
-        
-        .biblia { background: #fff9db; padding: 25px; border-left: 12px solid #f1c40f; font-family: 'Playfair Display', serif; font-style: italic; font-size: 0.8em; margin: 15px 0; }
-        .cec { background: #fdf2e9; padding: 25px; border-left: 12px solid #e67e22; font-size: 0.75em; margin: 15px 0; color: #873600; }
-        .cec b { color: #d35400; }
-        
-        .catena { background: #f4ecf7; padding: 20px; border-left: 12px solid #8e44ad; font-size: 0.65em; margin: 10px 0; font-style: italic; }
-        .catena-title { font-weight: bold; color: #6c3483; font-size: 0.8em; margin-bottom: 5px; display: block; }
+        h3 { font-family: 'Playfair Display', serif; font-size: 1.45em; color: #1a5276; margin-top: 0; }
 
-        .santo-link { font-size: 0.5em; color: #2980b9; text-decoration: none; display: inline-block; margin-top: 10px; border-bottom: 1px dashed #2980b9; }
+        .text-literal { text-align: justify; line-height: 1.4; color: #34495e; font-size: 0.9em; }
+        .biblia { background: #fff9db; padding: 25px; border-left: 12px solid #f1c40f; font-family: 'Playfair Display', serif; font-style: italic; font-size: 0.8em; margin: 15px 0; }
+        .cec { background: #fdf2e9; padding: 22px; border-left: 12px solid #e67e22; font-size: 0.72em; margin: 12px 0; color: #873600; line-height: 1.4; }
+        .cec b { color: #d35400; }
+        .reflexion { background: #eafaf1; padding: 24px; border-left: 12px solid #1e8449; font-size: 0.78em; margin: 14px 0; line-height: 1.38; }
+        .catena { background: #f5f0e8; padding: 20px; border-left: 12px solid #8e6f3e; font-size: 0.68em; line-height: 1.45; margin: 12px 0; color: #3d3428; font-style: italic; }
+        .catena cite { display: block; text-align: right; font-style: normal; color: #7a6a5a; margin-top: 8px; font-size: 0.9em; }
 
         .row { display: flex; gap: 40px; align-items: stretch; flex: 1; min-height: 0; }
-        .col-text { flex: 1.5; overflow-y: auto; padding-right: 15px; }
-        .col-img { flex: 1; display: flex; align-items: center; justify-content: center; background: #fdfefe; border-radius: 15px; overflow: hidden; border: 1px solid #eee; }
-        .col-img img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        .col-text { flex: 1.5; overflow-y: auto; padding-right: 12px; }
+        .col-img { flex: 1; display: flex; align-items: center; justify-content: center; background: #f8f9fa; border-radius: 15px; overflow: hidden; border: 2px solid #eee; }
+        .col-img img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
 
         .page-num { position: absolute; bottom: 20px; right: 40px; font-size: 0.5em; color: #95a5a6; }
     </style>
 </head>
 <body class="impress-not-supported">
 
+<div id="slide-load-error" hidden role="alert">
+    <p id="slide-load-error-msg"></p>
+    <p>Si tiene el enlace de la parroquia (GitHub Pages), ábralo en el navegador en lugar del archivo desde la carpeta.</p>
+</div>
+
 <div id="impress" data-width="1920" data-height="1080" data-max-scale="3" data-min-scale="0.1">
-    <!-- El cargador dinámico llenará este espacio -->
 </div>
 
 <script src="../../js/impress.js"></script>
 <script>
 (function() {
-    var MAX_SLIDES = 20;
+    var MAX_SLIDES = 999;
     var impressEl = document.getElementById('impress');
+    var errorBox = document.getElementById('slide-load-error');
+    var errorMsg = document.getElementById('slide-load-error-msg');
+
+    function showLoadError(message) {
+        errorMsg.textContent = message || 'No se pudieron cargar las diapositivas.';
+        errorBox.hidden = false;
+    }
 
     function loadSlides() {
+        if (location.protocol === 'file:') {
+            showLoadError('Esta presentación debe abrirse desde un sitio web (por ejemplo GitHub Pages), no como archivo local.');
+            return Promise.resolve(false);
+        }
         var parser = new DOMParser();
+
         function loadFromIndex(n) {
-            if (n >= MAX_SLIDES) return Promise.resolve();
+            if (n >= MAX_SLIDES) {
+                return Promise.resolve();
+            }
             var name = String(n).padStart(3, '0');
             return fetch('slides/' + name + '.html')
-                .then(res => res.ok ? res.text() : null)
-                .then(html => {
-                    if (!html) return;
+                .then(function(res) {
+                    if (!res.ok) {
+                        return null;
+                    }
+                    return res.text();
+                })
+                .then(function(html) {
+                    if (html === null) {
+                        return;
+                    }
                     var doc = parser.parseFromString(html, 'text/html');
                     var step = doc.querySelector('.step');
-                    if (step) impressEl.appendChild(step.cloneNode(true));
+                    if (!step) {
+                        console.warn('slides/' + name + '.html: no .step found');
+                        return;
+                    }
+                    impressEl.appendChild(step.cloneNode(true));
                     return loadFromIndex(n + 1);
                 });
         }
-        return loadFromIndex(0);
+
+        return loadFromIndex(0)
+            .catch(function(err) {
+                console.error(err);
+                showLoadError('Error al cargar las diapositivas. Compruebe que usa la versión publicada (https).');
+            })
+            .then(function() {
+                if (!impressEl.querySelector('.step')) {
+                    if (errorBox.hidden) {
+                        showLoadError();
+                    }
+                    return false;
+                }
+                return true;
+            });
     }
 
-    loadSlides().then(() => {
-        if (impressEl.querySelector('.step')) {
-            impress().init();
+    loadSlides().then(function(ok) {
+        if (!ok) {
+            return;
         }
+        impress().init();
     });
 })();
 </script>
