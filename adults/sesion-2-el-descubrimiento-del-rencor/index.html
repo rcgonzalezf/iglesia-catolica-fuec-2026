@@ -4,16 +4,98 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Sesión 2 - El Descubrimiento del Rencor</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
 
     <style>
+        /* Self-hosted fonts (latin + latin-ext for Spanish) — see assets/fonts/FONT-LICENSE.txt */
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url('assets/fonts/montserrat-400-latin-ext.woff2') format('woff2');
+            unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url('assets/fonts/montserrat-400-latin.woff2') format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url('assets/fonts/montserrat-700-latin-ext.woff2') format('woff2');
+            unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url('assets/fonts/montserrat-700-latin.woff2') format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+        @font-face {
+            font-family: 'Playfair Display';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url('assets/fonts/playfair-display-700-latin-ext.woff2') format('woff2');
+            unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+        @font-face {
+            font-family: 'Playfair Display';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url('assets/fonts/playfair-display-700-latin.woff2') format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+        @font-face {
+            font-family: 'Playfair Display';
+            font-style: italic;
+            font-weight: 400;
+            font-display: swap;
+            src: url('assets/fonts/playfair-display-italic-400-latin-ext.woff2') format('woff2');
+            unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+        @font-face {
+            font-family: 'Playfair Display';
+            font-style: italic;
+            font-weight: 400;
+            font-display: swap;
+            src: url('assets/fonts/playfair-display-italic-400-latin.woff2') format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
         body { font-family: 'Montserrat', sans-serif; background: #eef2f3; color: #2c3e50; margin: 0; overflow: hidden; }
-        
-        .step { 
-            width: 1400px; height: 900px; padding: 60px; 
-            background: white !important; border-radius: 20px; 
-            box-shadow: 0 10px 50px rgba(0,0,0,0.1); 
+
+        #slide-load-error {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background: #1a252f;
+            color: #ecf0f1;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            text-align: center;
+        }
+        #slide-load-error:not([hidden]) { display: flex; flex-direction: column; gap: 1rem; }
+        #slide-load-error a { color: #5dade2; }
+
+        .step {
+            width: 1400px; height: 900px; padding: 60px;
+            background: white !important; border-radius: 20px;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.1);
             opacity: 0 !important; visibility: hidden !important;
             transition: opacity 0.5s, transform 0.8s;
             display: flex; flex-direction: column; font-size: 2.2em;
@@ -21,8 +103,8 @@
         }
         .step.active { opacity: 1 !important; visibility: visible !important; z-index: 100; pointer-events: auto; }
 
-        .main-title { 
-            font-family: 'Playfair Display', serif; font-size: 2.5em; text-align: center; 
+        .main-title {
+            font-family: 'Playfair Display', serif; font-size: 2.5em; text-align: center;
             color: white; background: #c0392b; padding: 40px; border-radius: 15px;
             box-shadow: 0 10px 30px rgba(192, 57, 43, 0.3); margin: 20px 0; line-height: 1.1;
         }
@@ -30,17 +112,16 @@
         h1 { font-family: 'Playfair Display', serif; font-size: 3em; text-align: center; color: #1a252f; margin-bottom: 20px; }
         h2 { font-family: 'Playfair Display', serif; font-size: 2em; color: #c0392b; border-bottom: 4px solid #c0392b; display: inline-block; margin-bottom: 20px; }
         h3 { font-family: 'Playfair Display', serif; font-size: 1.5em; color: #2980b9; margin-top: 0; }
-        
+
         .text-literal { text-align: justify; line-height: 1.4; color: #34495e; font-size: 0.9em; }
         .biblia { background: #fff9db; padding: 30px; border-left: 15px solid #f1c40f; font-family: 'Playfair Display', serif; font-style: italic; font-size: 0.85em; margin: 20px 0; }
         .reflexion { background: #ebf5fb; padding: 30px; border-left: 15px solid #3498db; font-size: 0.8em; margin: 20px 0; font-weight: bold; }
-        
+
         .row { display: flex; gap: 40px; align-items: stretch; flex: 1; min-height: 0; }
         .col-text { flex: 1.5; overflow-y: auto; padding-right: 10px; }
         .col-img { flex: 1; display: flex; align-items: center; justify-content: center; background: #f8f9fa; border-radius: 15px; overflow: hidden; border: 2px solid #eee; }
         .col-img img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
 
-        /* Video Styles */
         .video-container { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; background: #000; border-radius: 20px; overflow: hidden; }
         video { width: 100%; height: 100%; object-fit: contain; }
         .video-thumbnail {
@@ -64,222 +145,105 @@
 </head>
 <body class="impress-not-supported">
 
+<div id="slide-load-error" hidden role="alert">
+    <p id="slide-load-error-msg"></p>
+    <p>Si tiene el enlace de la parroquia (GitHub Pages), ábralo en el navegador en lugar del archivo desde la carpeta.</p>
+</div>
+
 <div id="impress" data-width="1920" data-height="1080" data-max-scale="3" data-min-scale="0.1">
-
-    <!-- 0. OVERVIEW -->
-    <div id="panorama" class="step" data-x="4000" data-y="3000" data-scale="12" style="background:transparent !important; box-shadow:none; border:none;">
-        <h2 style="font-size: 8em; color: #1a252f; text-shadow: 5px 5px 20px rgba(0,0,0,0.1); font-weight: 900;">El Rencor</h2>
-    </div>
-
-    <!-- 1. INICIO -->
-    <div id="inicio" class="step" data-x="0" data-y="0" data-scale="4">
-        <p style="text-align:center; font-style:italic; font-size: 0.6em; margin: 0;">Colección Virtus — Terapia del Perdón</p>
-        <div class="main-title">EL DESCUBRIMIENTO<br>DEL RENCOR</div>
-        <div class="row">
-            <div class="col-text">
-                <p class="text-literal">
-                    "Distinguimos diversos momentos en el proceso del perdón o curación del rencor: descubrir nuestros rencores y reconocer la ineficacia de los medios empleados hasta ahora para solucionar nuestro rencor; querer perdonar y alcanzar el perdón; finalmente, descubrir la libertad del perdón."
-                </p>
-            </div>
-            <div class="col-img">
-                <img src="assets/imagen000.png" alt="Proceso del Perdón">
-            </div>
-        </div>
-        <span class="page-num">Pág. 17</span>
-    </div>
-
-    <!-- 2. MÉTODO -->
-    <div id="metodo" class="step" data-x="2000" data-y="0" data-z="-1000" data-scale="2">
-        <h2>Nuestro Método</h2>
-        <div class="row">
-            <div class="col-text">
-                <p class="text-literal" style="font-size: 0.8em;">
-                    "Procederemos siguiendo siempre el mismo método que consiste en tres ejercicios:<br><br>
-                    (a) un texto de la <b>Sagrada Escritura</b>.<br>
-                    (b) una explicación de los <b>aspectos más importantes</b>.<br>
-                    (c) ciertos <b>ejercicios personales</b> en un <i>Cuaderno de trabajo o Cuaderno espiritual</i>."
-                </p>
-            </div>
-            <div class="col-img">
-                <img src="assets/imagen001.png" alt="Método de trabajo">
-            </div>
-        </div>
-        <span class="page-num">Pág. 17</span>
-    </div>
-
-    <!-- 3. DESCUBRIR -->
-    <div id="descubrir-intro" class="step" data-x="4000" data-y="0" data-scale="2">
-        <h1>I. DESCUBRIR LOS RENCORES</h1>
-        <p class="text-literal">
-            "Ayudarnos a reconocer nuestros rencores. No se trata de un trabajo superfluo pues muchos de nuestros resentimientos no son tan evidentes... La ira y el enojo propios, asustan a las personas o las humillan; por eso uno trata instintivamente de ocultar o disfrazar los propios enojos."
-        </p>
-        <span class="page-num">Pág. 17</span>
-    </div>
-
-    <!-- 4. CAPAS -->
-    <div id="capas" class="step" data-x="4000" data-y="0" data-z="1000" data-scale="1">
-        <div class="row">
-            <div class="col-text">
-                <p class="text-literal">
-                    "El hecho mismo de que nos sorprenda oír... que la solución de ciertos problemas como el alcoholismo o la drogadicción tienen que ver con el resentimiento... es probativo de que muchos resentimientos están protegidos debajo de capas insospechadas."
-                </p>
-            </div>
-            <div class="col-img">
-                <img src="assets/imagen002.png" alt="Capas del Rencor">
-            </div>
-        </div>
-        <span class="page-num">Pág. 17-18</span>
-    </div>
-
-    <!-- 5. MECANISMOS INTRO (Génesis) -->
-    <div id="mecanismos-intro" class="step" data-x="-2000" data-y="2000" data-scale="3">
-        <h2>Mecanismos de Defensa</h2>
-        <div class="row">
-            <div class="col-text">
-                <div class="biblia">
-                    “ Dios dijo a Caín: ‘¿Por qué andas encolerizado, y por qué está abatido tu rostro? ¿No es cierto que si obras bien puedes llevar la frente alta? Pero, si no obras bien, a la puerta está el pecado acechando como
-fiera que te codicia, y a quien tienes que dominar’. Caín, dijo a su hermano Abel: ‘Vamos afuera’. Y cuando estaban en el campo, se lanzó Caín contra su hermano Abel y lo mató. Dios dijo a Caín: ‘¿Dónde está
-tu hermano Abel?’ Contestó: ‘No sé. ¿Soy yo acaso el guarda de mi hermano?’”
-                    <span style="display:block; text-align:right; font-size: 0.8em;">Génesis 4, 6-9</span>
-                </div>
-            </div>
-            <div class="col-img">
-                <img src="assets/005.Cain_Slays_Abel.jpg" alt="Caín mata a Abel - Gustave Doré">
-            </div>
-        </div>
-        <span class="page-num">Pág. 18</span>
-    </div>
-
-    <!-- NUEVO: PREVIEW LEY DEL TALIÓN -->
-    <div id="talion-preview" class="step" data-x="-2000" data-y="0" data-scale="1">
-        <h3 style="text-align:center;">Contexto Histórico</h3>
-        <h2 style="display:block; text-align:center;">La Ley del Talión</h2>
-        <div class="video-thumbnail">
-            <div class="play-button"></div>
-        </div>
-        <p style="text-align:center; font-size: 0.6em;">"Ojo por ojo, diente por diente"</p>
-    </div>
-
-    <!-- NUEVO: VIDEO LEY DEL TALIÓN -->
-    <div id="talion-video-step" class="step" data-x="-3500" data-y="0" data-scale="2">
-        <div class="video-container">
-            <video id="talion-video" controls preload="auto">
-                <source src="assets/ojoPorOjo.mp4" type="video/mp4">
-            </video>
-        </div>
-    </div>
-
-    <!-- 6. DOCTRINA MECANISMOS -->
-    <div id="mecanismos-doctrina" class="step" data-x="-2000" data-y="3500" data-scale="2">
-        <h3>Doctrina Fundamental</h3>
-        <div class="row">
-            <div class="col-text">
-                <p class="text-literal">
-                    "Existen distintos mecanismos para evitar reconocer o enfrentar el rencor... En el fondo ninguno de ellos consigue realmente evitarlo... tan sólo desvía el problema o lo reprime; de ahí que, tarde o temprano, emerja en forma de rabia o violencia."
-                </p>
-            </div>
-            <div class="col-img">
-                <img src="assets/imagen003.png" alt="Mecanismos de evitación">
-            </div>
-        </div>
-        <span class="page-num">Pág. 18</span>
-    </div>
-
-    <!-- 7. NEGAR (i) -->
-    <div id="mecanismo-i" class="step" data-x="-3500" data-y="5000" data-scale="1">
-        <h3>(i) Negar los hechos</h3>
-        <div class="row">
-            <div class="col-text">
-                <p class="text-literal">
-                    "Evitar encarar con sinceridad y claridad los enojos... es negar los hechos: 'en realidad nunca pasó nada'. Autoconvencernos de que no ha pasado nada no es grandeza de ánimo sino negación de la realidad."
-                </p>
-                <div class="reflexion">"Dios no niega nuestros pecados, sino que los perdona."</div>
-            </div>
-            <div class="col-img">
-                <img src="assets/imagen004.png" alt="Negación">
-            </div>
-        </div>
-        <span class="page-num">Pág. 18</span>
-    </div>
-
-    <!-- 16. SÍNTOMAS 1 -->
-    <div id="sintomas-i" class="step" data-x="6000" data-y="4000" data-scale="2">
-        <h3>Síntomas del rencor inconsciente</h3>
-        <div class="row">
-            <div class="col-text">
-                <ul style="font-size: 0.8em;">
-                    <li><b>Envidia y celos:</b> Entristecerse por el éxito ajeno.</li>
-                    <li><b>Difamación y calumnia:</b> Instrumentos del odio.</li>
-                    <li><b>Queja constante:</b> Murmuración hostil.</li>
-                    <li><b>Disconformidad:</b> Eterno desagrado con otros.</li>
-                </ul>
-            </div>
-            <div class="col-img">
-                <img src="assets/imagen005.png" alt="Síntomas del rencor">
-            </div>
-        </div>
-        <span class="page-num">Pág. 22-23</span>
-    </div>
-
-    <!-- 18. VERGÜENZA Y CULPA -->
-    <div id="verguenza-culpa" class="step" data-x="10000" data-y="4000" data-scale="2">
-        <h3>Vergüenza y Culpa</h3>
-        <div class="row">
-            <div class="col-text">
-                <p class="text-literal">
-                    "Cuando estos afectos son muy intensos y tienden a abatirnos; guardamos mucha rabia contra nosotros mismos, por sentirnos culpables de ciertos fracasos o ruinas personales."
-                </p>
-            </div>
-            <div class="col-img">
-                <img src="assets/imagen006.png" alt="Vergüenza y culpa">
-            </div>
-        </div>
-        <span class="page-num">Pág. 23-24</span>
-    </div>
-
-    <!-- 24. REFLEXIONES FINALES -->
-    <div id="reflexiones-finales" class="step" data-x="4000" data-y="8000" data-scale="4" data-rotate-z="90">
-        <h2>Reflexiones Finales</h2>
-        <div class="row">
-            <div class="col-text">
-                <div class="reflexion">
-                    (i) ¿He evitado reconocer mis rencores?<br>
-                    (ii) ¿Soy consciente de mis amarguras?<br>
-                    (iii) ¿Contra quién guardo rencor?
-                </div>
-            </div>
-            <div class="col-img">
-                <img src="assets/imagen007.png" alt="Reflexión final">
-            </div>
-        </div>
-        <span class="page-num">Pág. 26</span>
-    </div>
-
 </div>
 
 <script src="../../js/impress.js"></script>
 <script>
-    var api = impress();
-    api.init();
+(function() {
+    var MAX_SLIDES = 999;
+    var impressEl = document.getElementById('impress');
+    var errorBox = document.getElementById('slide-load-error');
+    var errorMsg = document.getElementById('slide-load-error-msg');
 
-    // Control de video automático para Adultos
-    var vTalion = document.getElementById('talion-video');
-    
-    document.addEventListener('impress:stepenter', function(e) {
-        if (e.target.id === 'talion-video-step') {
-            var playPromise = vTalion.play();
-            if (playPromise !== undefined) {
-                playPromise.then(_ => {}).catch(error => console.log("Video playback interrupted:", error));
+    function showLoadError(message) {
+        errorMsg.textContent = message || 'No se pudieron cargar las diapositivas.';
+        errorBox.hidden = false;
+    }
+
+    function loadSlides() {
+        if (location.protocol === 'file:') {
+            showLoadError('Esta presentación debe abrirse desde un sitio web (por ejemplo GitHub Pages), no como archivo local.');
+            return Promise.resolve(false);
+        }
+        var parser = new DOMParser();
+
+        function loadFromIndex(n) {
+            if (n >= MAX_SLIDES) {
+                return Promise.resolve();
             }
+            var name = String(n).padStart(3, '0');
+            return fetch('slides/' + name + '.html')
+                .then(function(res) {
+                    if (!res.ok) {
+                        return null;
+                    }
+                    return res.text();
+                })
+                .then(function(html) {
+                    if (html === null) {
+                        return;
+                    }
+                    var doc = parser.parseFromString(html, 'text/html');
+                    var step = doc.querySelector('.step');
+                    if (!step) {
+                        console.warn('slides/' + name + '.html: no .step found');
+                        return;
+                    }
+                    impressEl.appendChild(step.cloneNode(true));
+                    return loadFromIndex(n + 1);
+                });
         }
-    });
 
-    document.addEventListener('impress:stepleave', function(e) {
-        if (e.target.id === 'talion-video-step') {
-            vTalion.pause();
-            vTalion.currentTime = 0;
+        return loadFromIndex(0)
+            .catch(function(err) {
+                console.error(err);
+                showLoadError('Error al cargar las diapositivas. Compruebe que usa la versión publicada (https).');
+            })
+            .then(function() {
+                if (!impressEl.querySelector('.step')) {
+                    if (errorBox.hidden) {
+                        showLoadError();
+                    }
+                    return false;
+                }
+                return true;
+            });
+    }
+
+    loadSlides().then(function(ok) {
+        if (!ok) {
+            return;
         }
+        var api = impress();
+        api.init();
+
+        var vTalion = document.getElementById('talion-video');
+
+        document.addEventListener('impress:stepenter', function(e) {
+            if (e.target.id === 'talion-video-step' && vTalion) {
+                var playPromise = vTalion.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(function() {}).catch(function(error) {
+                        console.log('Video playback interrupted:', error);
+                    });
+                }
+            }
+        });
+
+        document.addEventListener('impress:stepleave', function(e) {
+            if (e.target.id === 'talion-video-step' && vTalion) {
+                vTalion.pause();
+                vTalion.currentTime = 0;
+            }
+        });
     });
+})();
 </script>
 
 </body>

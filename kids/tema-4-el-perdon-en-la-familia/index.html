@@ -68,6 +68,139 @@
 
         .highlight { color: #e63946; font-weight: bold; }
         img { max-height: 350px; display: block; margin: 0 auto; }
+
+        #peleas {
+            justify-content: flex-start;
+            padding: 48px 56px 40px;
+            font-size: 1.9em;
+        }
+
+        #peleas .peleas-title {
+            font-size: 2.5em;
+            margin: 0 0 24px;
+            line-height: 1.05;
+        }
+
+        #peleas .peleas-layout {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex: 1;
+            min-height: 0;
+        }
+
+        #peleas .peleas-art {
+            flex: 0 0 44%;
+            margin: 0;
+            height: 100%;
+            max-height: 560px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #peleas .peleas-art img {
+            max-height: 560px;
+            max-width: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 24px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+            margin: 0;
+        }
+
+        #peleas .peleas-lista {
+            flex: 1;
+            margin: 0;
+            align-self: center;
+            font-size: 1.15em;
+        }
+
+        #peleas .peleas-biblia {
+            margin: 24px 0 0;
+            padding: 22px 28px;
+            font-size: 0.85em;
+        }
+
+        #sana {
+            justify-content: flex-start;
+            padding: 48px 56px 40px;
+            font-size: 1.9em;
+        }
+
+        #sana .sana-title {
+            font-size: 2.5em;
+            margin: 0 0 24px;
+            line-height: 1.05;
+        }
+
+        #sana .sana-layout {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex: 1;
+            min-height: 0;
+        }
+
+        #sana .sana-lista {
+            flex: 1;
+            margin: 0;
+            align-self: center;
+            font-size: 1.15em;
+        }
+
+        #sana .sana-art {
+            flex: 0 0 44%;
+            margin: 0;
+            height: 100%;
+            max-height: 560px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #sana .sana-art img {
+            max-height: 560px;
+            max-width: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 24px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+            margin: 0;
+        }
+
+        #sana .sana-cec {
+            margin: 24px 0 0;
+            padding: 22px 28px;
+            font-size: 0.85em;
+        }
+
+        #holy-family {
+            padding: 36px 48px;
+            justify-content: center;
+        }
+
+        #holy-family .holy-family-frame {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 0;
+            margin: 0;
+        }
+
+        #holy-family .holy-family-frame img {
+            max-height: 100%;
+            max-width: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 24px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+            margin: 0;
+        }
     </style>
 </head>
 <body class="impress-not-supported">
@@ -105,24 +238,39 @@
     </div>
 
     <div id="peleas" class="step" data-x="3000" data-y="2500" data-scale="2">
-        <h2>¿Qué pasa cuando nos peleamos? ☁️</h2>
-        <img src="assets/QuePasaCuandoPeleamos.jpg" alt="Qué pasa cuando nos peleamos en familia">
-        <ul class="lista">
-            <li>Peleas entre hermanos</li>
-            <li>Palabras que duelen</li>
-            <li>Enojo o malentendidos</li>
-        </ul>
-        <div class="biblia">"Perdónense unos a otros como el Señor los ha perdonado" (Colosenses 3,13)</div>
+        <h2 class="peleas-title">¿Qué pasa cuando nos peleamos? ☁️</h2>
+        <div class="peleas-layout">
+            <figure class="peleas-art">
+                <img src="assets/QuePasaCuandoPeleamos.jpg" alt="Qué pasa cuando nos peleamos en familia">
+            </figure>
+            <ul class="lista peleas-lista">
+                <li>Peleas entre hermanos</li>
+                <li>Palabras que duelen</li>
+                <li>Enojo o malentendidos</li>
+            </ul>
+        </div>
+        <div class="biblia peleas-biblia">"Perdónense unos a otros como el Señor los ha perdonado" (Colosenses 3,13)</div>
+    </div>
+
+    <div id="holy-family" class="step" data-x="6000" data-y="4000" data-scale="2.5">
+        <figure class="holy-family-frame">
+            <img src="assets/HolyFamily.jpg" alt="Oración a la Sagrada Familia de Jesús, María y José">
+        </figure>
     </div>
 
     <div id="sana" class="step" data-x="6000" data-y="2500" data-rotate="-90" data-scale="2">
-        <h2>¡El Perdón Sana el Corazón! ❤️</h2>
-        <ul class="lista">
-            <li>El corazón se calma</li>
-            <li>La relación se arregla</li>
-            <li>El amor brilla más fuerte</li>
-        </ul>
-        <div class="cec">"La educación de los hijos se realiza principalmente en la familia..." (CEC 2227)</div>
+        <h2 class="sana-title">¡El Perdón Sana el Corazón! ❤️</h2>
+        <div class="sana-layout">
+            <ul class="lista sana-lista">
+                <li>El corazón se calma</li>
+                <li>La relación se arregla</li>
+                <li>El amor brilla más fuerte</li>
+            </ul>
+            <figure class="sana-art">
+                <img src="assets/ForgivenessHeals.jpg" alt="El perdón sana el corazón en familia">
+            </figure>
+        </div>
+        <div class="cec sana-cec">"La educación de los hijos se realiza principalmente en la familia..." (CEC 2227)</div>
     </div>
 
     <div id="jesus" class="step" data-x="6000" data-y="5500" data-scale="2">
