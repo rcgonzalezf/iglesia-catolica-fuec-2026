@@ -78,6 +78,9 @@
         .col-img img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
 
         .page-num { position: absolute; bottom: 20px; right: 40px; font-size: 0.5em; color: #95a5a6; }
+
+        .video-container { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; background: #000; border-radius: 20px; overflow: hidden; }
+        video { width: 100%; height: 100%; object-fit: contain; }
     </style>
 </head>
 <body class="impress-not-supported">
@@ -157,7 +160,35 @@
         if (!ok) {
             return;
         }
-        impress().init();
+        var api = impress();
+        api.init();
+
+        var vSantaTeresa = document.getElementById('santa-teresa-video');
+
+        function tryPlayVideo(videoEl) {
+            if (!videoEl) {
+                return;
+            }
+            var playPromise = videoEl.play();
+            if (playPromise !== undefined) {
+                playPromise.then(function() {}).catch(function(error) {
+                    console.log('Video playback interrupted:', error);
+                });
+            }
+        }
+
+        document.addEventListener('impress:stepenter', function(e) {
+            if (e.target.id === 'santa-teresa-video-step' && vSantaTeresa) {
+                tryPlayVideo(vSantaTeresa);
+            }
+        });
+
+        document.addEventListener('impress:stepleave', function(e) {
+            if (e.target.id === 'santa-teresa-video-step' && vSantaTeresa) {
+                vSantaTeresa.pause();
+                vSantaTeresa.currentTime = 0;
+            }
+        });
     });
 })();
 </script>
