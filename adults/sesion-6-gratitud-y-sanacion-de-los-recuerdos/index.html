@@ -81,6 +81,21 @@
 
         .video-container { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; background: #000; border-radius: 20px; overflow: hidden; }
         video { width: 100%; height: 100%; object-fit: contain; }
+        .video-thumbnail {
+            width: 80%; margin: 20px auto; height: 350px;
+            background: #2d3436; border-radius: 20px;
+            display: flex; justify-content: center; align-items: center;
+            position: relative; border: 8px solid #1e8449; cursor: pointer;
+        }
+        .play-button {
+            width: 100px; height: 100px; background: #1e8449;
+            border-radius: 50%; display: flex; justify-content: center; align-items: center;
+        }
+        .play-button::after {
+            content: ""; display: block; width: 0; height: 0;
+            border-top: 20px solid transparent; border-bottom: 20px solid transparent;
+            border-left: 35px solid white; margin-left: 8px;
+        }
     </style>
 </head>
 <body class="impress-not-supported">
@@ -112,13 +127,16 @@
             return Promise.resolve(false);
         }
         var parser = new DOMParser();
+        var slideFetchOpts = { cache: 'no-store' };
+        var slideCacheBust = (location.hostname === 'localhost' || location.hostname === '127.0.0.1')
+            ? ('?v=' + Date.now()) : '';
 
         function loadFromIndex(n) {
             if (n >= MAX_SLIDES) {
                 return Promise.resolve();
             }
             var name = String(n).padStart(3, '0');
-            return fetch('slides/' + name + '.html')
+            return fetch('slides/' + name + '.html' + slideCacheBust, slideFetchOpts)
                 .then(function(res) {
                     if (!res.ok) {
                         return null;
@@ -164,6 +182,8 @@
         api.init();
 
         var vSantaTeresa = document.getElementById('santa-teresa-video');
+        var vAdolescenteAustraliano = document.getElementById('adolescente-australiano-video');
+        var vHermanaGlenda = document.getElementById('hermana-glenda-video');
 
         function tryPlayVideo(videoEl) {
             if (!videoEl) {
@@ -181,12 +201,26 @@
             if (e.target.id === 'santa-teresa-video-step' && vSantaTeresa) {
                 tryPlayVideo(vSantaTeresa);
             }
+            if (e.target.id === 'adolescente-australiano-video-step' && vAdolescenteAustraliano) {
+                tryPlayVideo(vAdolescenteAustraliano);
+            }
+            if (e.target.id === 'hermana-glenda-video-step' && vHermanaGlenda) {
+                tryPlayVideo(vHermanaGlenda);
+            }
         });
 
         document.addEventListener('impress:stepleave', function(e) {
             if (e.target.id === 'santa-teresa-video-step' && vSantaTeresa) {
                 vSantaTeresa.pause();
                 vSantaTeresa.currentTime = 0;
+            }
+            if (e.target.id === 'adolescente-australiano-video-step' && vAdolescenteAustraliano) {
+                vAdolescenteAustraliano.pause();
+                vAdolescenteAustraliano.currentTime = 0;
+            }
+            if (e.target.id === 'hermana-glenda-video-step' && vHermanaGlenda) {
+                vHermanaGlenda.pause();
+                vHermanaGlenda.currentTime = 0;
             }
         });
     });
