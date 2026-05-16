@@ -261,15 +261,26 @@
         api.init();
 
         var vTalion = document.getElementById('talion-video');
+        var vEtimologiaRencor = document.getElementById('etimologia-rencor-video');
+
+        function tryPlayVideo(videoEl) {
+            if (!videoEl) {
+                return;
+            }
+            var playPromise = videoEl.play();
+            if (playPromise !== undefined) {
+                playPromise.then(function() {}).catch(function(error) {
+                    console.log('Video playback interrupted:', error);
+                });
+            }
+        }
 
         document.addEventListener('impress:stepenter', function(e) {
             if (e.target.id === 'talion-video-step' && vTalion) {
-                var playPromise = vTalion.play();
-                if (playPromise !== undefined) {
-                    playPromise.then(function() {}).catch(function(error) {
-                        console.log('Video playback interrupted:', error);
-                    });
-                }
+                tryPlayVideo(vTalion);
+            }
+            if (e.target.id === 'etimologia-rencor-video-step' && vEtimologiaRencor) {
+                tryPlayVideo(vEtimologiaRencor);
             }
         });
 
@@ -277,6 +288,10 @@
             if (e.target.id === 'talion-video-step' && vTalion) {
                 vTalion.pause();
                 vTalion.currentTime = 0;
+            }
+            if (e.target.id === 'etimologia-rencor-video-step' && vEtimologiaRencor) {
+                vEtimologiaRencor.pause();
+                vEtimologiaRencor.currentTime = 0;
             }
         });
     });
